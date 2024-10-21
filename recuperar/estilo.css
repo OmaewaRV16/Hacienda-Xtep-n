@@ -1,0 +1,113 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: helvetica;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    background-image: url(imagenes/hacienda.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+body ::before{
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.fondo{
+    
+    height: 100%;
+}
+
+.text img{
+    width: 100px;
+    text-align: justify;
+}
+
+.acceso{
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    opacity: 90%;
+    width: 700px;
+    text-align: center;
+    border: 1px #333 solid;
+    border-radius: 15px;
+}
+.text{
+    background-color: #C85749;
+    display: flex;
+}
+
+.center{
+    font-size: 52px;
+    line-height: 58px;
+    font-weight: bold;
+    padding: 20px;
+    
+}
+
+h2{
+    font-size: 28px;
+    font-weight: bold;
+}
+.cam1{
+    padding: 0px 0px 0px 2px;
+    font-size: 18px;
+    width: 500px;
+    height: 30px;
+}
+
+.regresar{
+    background-color: #e0d9d9;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin: 20px;
+    color: #333;
+    text-decoration:none;
+
+}
+
+.envi{
+    text-align: right;
+    margin-bottom: 20px;
+    background-color: #C85749;
+    border-radius: 10px;
+    padding: 10px 28px;
+    font-size: 18px;
+    line-height: 14px;
+}
+
+.le{
+    text-align: left;
+    padding: 0px 80px;
+}
+
+.text2{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.text3{
+    font-size: 24px;
+    line-height: 30px;
+    padding: 10px 50px;
+    text-align: justify;
+}
+
+.azul{
+    color: blue;
+}
+
+.rojo{
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../imagenes/Xtepen_hacienda-cover-min.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.contenedorfrm {
+  background-color: var(--Blanco);
+  width: 600px;
+  height: 520px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px var(--GrisClaro);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form h1 {
+  font-family: "Lora";
+  background-color: var(--Principal);
+  width: 600px;
+  border-radius: 5px 5px 0 0;
+  height: 60px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.form h2 {
+  font-family: "Lora";
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.inputext {
+  margin: auto;
+  width: 350px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px var(--GrisOscuro) solid;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputextdt {
+    width: 200px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px var(--GrisOscuro) solid;
+    font-family: "Lora";
+    margin-left: 12px;
+}
+
+.inputext:hover {
+  box-shadow: 0px 0px 15px var(--GrisClaro);
+}
+
+.buttonsbmt {
+  margin: auto;
+  width: 140px;
+  padding: 10px;
+  font-family: "Lora";
+  background-color: var(--Blanco);
+  border-radius: 5px;
+}
+
+.buttonsbmt:hover {
+  background-color: var(--Principal);
+  color: var(--Blanco);
+}
+
+.form a {
+  text-align: center;
+  margin: auto;
+  color: var(--GrisClaro);
+  font-family: "Lora";
+}

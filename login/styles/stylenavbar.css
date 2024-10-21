@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.tutorial {
+    position: relative;
+}
+
+.ppic {
+    width: 50px;
+    border-radius: 50px;
+    margin: 10px 0;
+}
+
+.tutorial .information {
+    border: 1px red solid;
+    width: 80%;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+    margin: auto;
+    font-family: "Open Sans", sans-serif;
+}
+
+.tutorial .information h1 {
+    color: var(--Negro);
+    font-size: 1.5rem;
+    padding: 0px 10px;
+}
+
+.tutorial .information h3 {
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0px 10px;
+    border-left: 3px solid #F03861;
+}
+
+.tutorial .information p {
+    padding: 10px 0px;
+}
+
+.tutorial ul {
+    font-size: 0;
+    list-style-type: none;
+    background-color: var(--Secundario);
+    box-shadow: 0px 0px 40px #7700002d;
+}
+
+.tutorial ul li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: var(--Secundario);
+    color: var(--Texto);
+    display: inline-block;
+    padding: 15px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.tutorial ul li ul {
+    display: none;
+}
+
+.tutorial ul li:hover {
+    cursor: pointer;
+    background-color: #e0dad8;
+}
+
+.tutorial ul li:hover ul {
+    display: block;
+    margin-top: 15px;
+    width: 200px;
+    left: 0;
+    position: absolute;
+}
+
+.tutorial ul li:hover ul li {
+    display: block;
+    background-color: #e0dad8;
+}
+
+.tutorial ul li:hover ul li:hover {
+    background-color: #c1bbb9;
+}
+
+.tutorial ul li:hover ul li:hover span {
+    background-color: #ee204e;
+}
+
+.information {
+    text-align: center;
+}
+
+.xtepenimg {
+    width: 20%;
+    height: 10%;
+}
+
+.tutorial a {
+    text-decoration: none;
+    color: var(--Texto);
+    font-weight: 700;
+}
+
+.logo-img {
+    width: 40px;
+}
+
+.usuarioh4 {
+    color: var(--Texto);
+    padding: 5px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    padding: 10px;
+}
+
+.left-items {
+    display: flex;
+    align-items: center;
+}
+
+.right-items {
+    display: flex;
+    align-items: center;
+}
+
+.logo-left {
+    width: 180px;
+    margin: 10px    ;
+}
+
+.logo-left img {
+    width: 100%;
+    display: inline-block;
+}
