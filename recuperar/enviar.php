@@ -9,13 +9,12 @@
 </head>
 <body>
 <div class="fondo">
-        <p class="text"><a href="/HaciendaXtepen"><img src="imagenes/logo.gif" alt="logo"></a><span class="center">Hacienda Xtepen</span></p>
+        <p class="text"><a href="/HaciendaXtepen"><img src="../login/imagenes/xtepen-logo-750.gif" alt="logo"></a><span class="center"></span></p>
         <br><br><br><br>
         <div class="acceso">
             <h2>RECUPERA TU CUENTA</h2>
             <br>
-                <p class="text3">Rebiras en tu <span class="azul">correo electrónico</span>,se ha enviado tu <span class="rojo">codigo de verificación</span> y <span class="rojo">enlace</span> para cambiar la contraseña de tu cuenta</p><br>
-                <br><br>
+                <p class="text3">Recibiras en tu <span class="azul">correo electrónico</span>, se ha enviado tu <span class="rojo">codigo de verificación</span> y <span class="rojo">enlace</span> para cambiar la contraseña de tu cuenta</p>
                 <a class="regresar" href="/HaciendaXtepen/login/">Regresar</a>
         </div>
     </div>

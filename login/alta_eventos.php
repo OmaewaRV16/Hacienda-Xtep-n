@@ -13,15 +13,11 @@
     <div class="information">
         <div class="formulario">
         <form class="form" action="guardar_evento.php" method="post">
-            <h1>Reservas Eventos</h1><br>
-            <div>
+            <h1>Reservas Eventos</h1>
+            <div class="inputs">
             <input class="inputext" type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required>
             <input class="inputext" type="email" id="email" name="email" placeholder="Correo de contacto" required>
-            </div>
-            <br>    
-            <div>
             <input class="inputext" type="tel" id="telefono" name="telefono" placeholder="Tu número de contacto" required minlength="10" maxlength="10">
-            
             <select class="inputext" id="evento" name="evento" required>
                 <option value="" disabled selected>Selecciona un tipo de evento</option>
                 <option value="boda">Boda</option>
@@ -31,20 +27,17 @@
                 <option value="cumpleanos">Cumpleaños</option>
                 <option value="pedida">Pedida de Mano</option>
             </select>
-            </div><br>
-
-            <div class="date">
-                <p>Fecha de Evento:</p>
-            <input class="inputextdt" type="date" id="fecha" name="fecha" required>
-            <input class="inputextdt" type="number" id="invitados" name="invitados" placeholder="Cantidad de invitados" required><br>
-            </div><br>
-
-            <textarea class="inputext" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Describe los detalles adicionales del evento"></textarea><br>
-
-            <button class="buttonsbmt" type="submit">Reservar <i class="fa fa-check-square" aria-hidden="true"></i></button> <br>
+                <div class="date">
+                    <p>Fecha de Evento:</p>
+                <input class="inputextdt" type="date" id="fecha" name="fecha" required>
+                </div>
+                <input class="inputextdt" type="number" id="invitados" name="invitados" placeholder="Cantidad de invitados" required>
+            <textarea class="inputmsj" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Describe los detalles adicionales del evento"></textarea>
+            <button class="buttonsbmt" type="submit">Reservar <i class="fa fa-check-square" aria-hidden="true"></i></button>
             <a class="back" href="dashboard_eventos.php"><i class="fa-solid fa-angles-left"></i></a>
+            </div>
         </form>
-
+        </div>
         </div>
     </div>
 

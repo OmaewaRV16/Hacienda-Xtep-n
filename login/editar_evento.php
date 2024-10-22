@@ -40,7 +40,6 @@
                 <br>
                 <div>
                 <input type="number" class="inputext" name="invitados" placeholder="Cantidad de invitados" required value="<?php echo $fila["numero_invitados"]; ?>">
-                
                 <select class="inputext" id="evento" name="tipo_evento" required>
                     <option value="" disabled <?php echo ($fila['tipo_evento'] == '') ? 'selected' : ''; ?>>Selecciona un tipo de evento</option>
                     <option value="boda" <?php echo ($fila['tipo_evento'] == 'boda') ? 'selected' : ''; ?>>Boda</option>

@@ -39,7 +39,7 @@
 
             <tr>
                 <td><?php echo $fila["id_usuario"]; ?></td>
-                <td><img src="<?php echo $fila["foto"]; ?>" alt="" style="width: 100px; height: 100px; object-fit: cover; border-radius: 100%;"></td>
+                <td><img src="<?php echo $fila["foto"]; ?>" alt="" style="width: 90px; height: 90px; object-fit: cover; border-radius: 100%; padding: 5px;"></td>
                 <td><?php echo $fila["nombre_completo"]; ?></td>
                 <td><?php echo $fila["email"]; ?></td>
                 <!-- <td><?php echo $fila["contrasena"]; ?></td>

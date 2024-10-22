@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import '../login/styles/colors.css';
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -5,29 +8,21 @@
 }
 
 body{
-    font-family: helvetica;
+    font-family: 'Lora';
     font-size: 16px;
     line-height: 24px;
-    color: #333;
-    background-image: url(imagenes/hacienda.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: var(--Texto);
+    background-color: #e5d3cf;
     height: 100vh;
 }
 
-body ::before{
-    filter: blur(8px);
-    z-index: -1;
-}
-
 .fondo{
-    
     height: 100%;
 }
 
 .text img{
-    width: 100px;
+    margin: 5px;
+    width: 250px;
     text-align: justify;
 }
 
@@ -38,12 +33,31 @@ body ::before{
     opacity: 90%;
     width: 700px;
     text-align: center;
-    border: 1px #333 solid;
-    border-radius: 15px;
-}
-.text{
-    background-color: #C85749;
+    border-radius: 50px;
+    box-shadow: 0px 0px 40px #7700002d;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form p {
+    margin: 10px 0;
+}
+
+form input {
+    margin: 10px 0;
+}
+
+.text{
+    background-color: var(--Secundario);
+    display: flex;
+    box-shadow: 0px 0px 40px #7700002d;
 }
 
 .center{
@@ -51,7 +65,6 @@ body ::before{
     line-height: 58px;
     font-weight: bold;
     padding: 20px;
-    
 }
 
 h2{
@@ -59,16 +72,22 @@ h2{
     font-weight: bold;
 }
 .cam1{
-    padding: 0px 0px 0px 2px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+    padding: 10px;
     font-size: 18px;
     width: 500px;
     height: 30px;
 }
 
+.cam1:hover {
+    box-shadow: 0px 0px 40px #7700002d;
+}
+
 .regresar{
     background-color: #e0d9d9;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 50px;
+    padding: 8px 15px;
     margin-bottom: 20px;
     margin: 20px;
     color: #333;
@@ -77,13 +96,21 @@ h2{
 }
 
 .envi{
+    font-family: 'Lora';
     text-align: right;
     margin-bottom: 20px;
-    background-color: #C85749;
-    border-radius: 10px;
+    color: var(--Blanco);
+    background-color: var(--Texto);
+    border-radius: 50px;
     padding: 10px 28px;
     font-size: 18px;
     line-height: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.envi:hover {
+    box-shadow: 0px 0px 40px #7700002d;
 }
 
 .le{
@@ -97,6 +124,7 @@ h2{
 }
 
 .text3{
+    color: var(--Negro);
     font-size: 24px;
     line-height: 30px;
     padding: 10px 50px;

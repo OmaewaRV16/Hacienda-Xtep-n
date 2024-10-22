@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import '/login/styles/colors.css';
 
 *{
     margin: 0;
@@ -15,15 +16,19 @@ body {
   margin: auto;
   text-align: center;
   padding: 50px;
+  border-collapse: collapse;
+  /* border-radius: 25px;
+  border: 3px var(--Negro) solid;
+  overflow: hidden; */
 }
 
 .tabla th {
   margin: 5px;
   width: 5%;
   height: 30px;
-  background-color: #C85749;
+  background-color: var(--Texto);
   border: 2px black solid;
-  color: #ffffff;
+  color: var(--Blanco);
 }
 
 .tabla td {
@@ -36,5 +41,6 @@ body {
 
 .basurita {
   width: 40%;
-  color: #C85749;
+  color: var(--Texto);
+  font-size: 20px;
 }
