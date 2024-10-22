@@ -1,4 +1,4 @@
-<?php 
+<?php
 require "conexion.php";
 
 $email = addslashes($_POST['email']);

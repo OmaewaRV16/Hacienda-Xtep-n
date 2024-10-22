@@ -50,7 +50,7 @@ $fila = $resultado -> fetch_array();
                     </li>
                 </div>
                 <div class="right-items">
-                <img class="ppic" src="<?php echo $fila["foto"]; ?>" alt="">
+                <img id="fotoPerfil" class="ppic" src="<?php echo $fila["foto"]; ?>" alt="">
                     <li class="usuarioh4"><h4 class="usuarioh4"><?php echo $usuario; ?>
                 </li>
                     <li><a href="salir.php"><i class="fa-solid fa-right-from-bracket"></i></a></li>
@@ -58,6 +58,25 @@ $fila = $resultado -> fetch_array();
             </ul>
         </div>
     </div>
+    <div id="overlay" class="overlay"></div>
+        <!-- Script para controlar el modal de la imagen y el overlay -->
+        <script>
+        // Obtener la imagen y el overlay
+        var overlay = document.getElementById("overlay");
+        var img = document.getElementById("fotoPerfil");
+
+        // Cuando se hace clic en la imagen
+        img.onclick = function() {
+            overlay.style.display = "block"; // Mostrar overlay
+            img.classList.add("active"); // Agrandar imagen
+        }
+
+        // Cerrar el overlay al hacer clic fuera de la imagen
+        overlay.onclick = function() {
+            overlay.style.display = "none"; // Ocultar overlay
+            img.classList.remove("active"); // Restaurar tamaño de imagen
+        }
+    </script>
 </body>
 </html>
 

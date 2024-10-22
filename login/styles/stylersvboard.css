@@ -19,6 +19,7 @@ body {
 }
 
 table {
+    font-size: 12px;
     margin: auto;
     text-align: center;
     padding: 50px;
@@ -30,8 +31,13 @@ table th {
     width: 5%;
     height: 30px;
     background-color: var(--Texto);
-    border: 2px var(--Negro) solid;
+    /* border: 2px var(--Negro) solid; */
     color: var(--Blanco);
+}
+
+.tabla {
+    margin: 60px;
+    border: 2px var(--Texto) solid;
 }
 
 .tabla td {
@@ -39,7 +45,7 @@ table th {
     height: 30px;
     font-size: 14px;
     background-color: var(--Blanco);
-    border: 1px var(--Negro) solid;
+    border-left: 1px var(--Texto) solid;
 }
 
 

@@ -55,4 +55,25 @@ if ($query) {
     ';
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $url = 'https://script.google.com/macros/s/AKfycbwevdSQ-zuTImAnojMbB82HhLgScPp8dGQWYZ9rQOeptMA_s0wXOctSgiSrR-Z8lFmwgQ/exec';
+    $data = array('email' => $email,'fecha' => $fecha, 'nombre' => $nombre);
+
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+
+    if ($result === FALSE) {
+        echo "Hubo un error al enviar el correo.";
+    } else {
+        echo "Correo enviado correctamente.";
+    }
+}
+
 ?>

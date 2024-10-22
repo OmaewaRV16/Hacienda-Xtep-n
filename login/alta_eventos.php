@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +30,15 @@
                     <p>Fecha de Evento:</p>
                 <input class="inputextdt" type="date" id="fecha" name="fecha" required>
                 </div>
-                <input class="inputextdt" type="number" id="invitados" name="invitados" placeholder="Cantidad de invitados" required>
+                <input class="inputextdt" type="number" id="invitados" name="invitados" placeholder="Cantidad de invitados" required min="1" max="1000" oninput="validarInvitados(this)">
+                <script>
+                function validarInvitados(input) {
+                const min = 1;
+                const max = 1000;
+                if (input.value < min) input.value = min;
+                if (input.value > max) input.value = max;
+                }
+            </script>
             <textarea class="inputmsj" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Describe los detalles adicionales del evento"></textarea>
             <button class="buttonsbmt" type="submit">Reservar <i class="fa fa-check-square" aria-hidden="true"></i></button>
             <a class="back" href="dashboard_eventos.php"><i class="fa-solid fa-angles-left"></i></a>

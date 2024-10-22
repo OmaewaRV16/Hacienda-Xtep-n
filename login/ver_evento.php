@@ -35,7 +35,7 @@
             }
 
             // Convertir la fecha del evento al formato español
-            $fecha_evento = convertir_mes_espanol($fila["fecha_evento"]);
+            $fecha = convertir_mes_espanol($fila["fecha"]);
             ?>
 
             <div class="contenedor_usuario">
@@ -49,20 +49,13 @@
                 <h4><?php echo $fila["telefono"]; ?></h4>
                 <hr>
                 <h3>Tipo de Evento</h3>
-                <h4><?php echo $fila["tipo_evento"]; ?></h4>
+                <h4><?php echo $fila["evento"]; ?></h4>
                 <hr>
                 <h3>Fecha del Evento</h3>
-                <h4><?php echo $fecha_evento; ?></h4>
+                <h4><?php echo $fecha; ?></h4>
                 <hr>
                 <h3>Cantidad de Invitados</h3>
-                <h4><?php echo $fila["numero_invitados"]; ?></h4>
-                <hr>
-                <h3>Servicios Adicionales</h3>
-                <h4>Ceremonia o Presentación: <?php echo $fila["ceremonia_presentacion"];?></h4>
-                <h4>Banquete: <?php echo $fila["banquete"];?></h4>
-                <h4>Bebidas o Barra Libre: <?php echo $fila["bebidas"];?></h4>
-                <h4>Música en vivo: <?php echo $fila["musica_vivo"];?></h4>
-                <h4>Fotografo: <?php echo $fila["fotografo"];?></h4>
+                <h4><?php echo $fila["invitados"]; ?></h4>
                 <hr>
                 <h3>Detalles Adicionales</h3>
                 <h4><?php echo $fila["mensaje"]; ?></h4>
