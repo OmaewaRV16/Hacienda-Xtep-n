@@ -26,7 +26,8 @@ $verificar_fecha = mysqli_query($conectar,
 if (mysqli_num_rows($verificar_fecha) > 0) {
     echo '
     <script>
-        alert("Ya existe una reserva para esta fecha. Por favor, selecciona otra.");
+        alert("Ya existe una reserva para esta fecha. 
+        Por favor, selecciona otra.");
         location.href="alta_reservas_eventos.php";
     </script>
     ';
