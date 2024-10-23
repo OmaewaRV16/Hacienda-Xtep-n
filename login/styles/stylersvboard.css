@@ -42,7 +42,7 @@ table th {
 
 .tabla td {
     width: 10%;
-    height: 30px;
+    height: 40px;
     font-size: 14px;
     background-color: var(--Blanco);
     border-left: 1px var(--Texto) solid;

@@ -48,6 +48,11 @@ $fila = $resultado -> fetch_array();
                             <li><a href="alta_eventos.php">Alta Eventos</a></li>
                         </ul>
                     </li>
+                    <li><a href="dashboard_banquetes.php">Banquetes Menú<i class="fa fa-angle-down"></i>
+                        <ul>
+                            <li><a href="alta_banquetes.php">Alta Banquetes Menú</a></li>
+                        </ul>
+                    </li>
                 </div>
                 <div class="right-items">
                 <img id="fotoPerfil" class="ppic" src="<?php echo $fila["foto"]; ?>" alt="">

@@ -44,16 +44,16 @@
                     $fecha = convertir_mes_espanol($fila["fecha"]);
                 ?>
                     <tr>
-                        <td><?php echo $fila["id"]; ?></td>
+                        <td style="width: 10px;"><?php echo $fila["id"]; ?></td>
                         <td><?php echo $fila["nombre"]; ?></td>
                         <td><?php echo $fila["email"]; ?></td>
                         <td><?php echo $fila["telefono"]; ?></td>
                         <td><?php echo $fila["evento"]; ?></td>
                         <td><?php echo $fila["fecha"]; ?></td>
                         <td><?php echo $fila["invitados"]; ?></td>
-                        <td><a href="ver_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-eye"></i></a></td>
-                        <td><a href="editar_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-pen-to-square"></i></a></td>
-                        <td>
+                        <td style="width: 50px;"><a href="ver_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-eye"></i></a></td>
+                        <td style="width: 50px;"><a href="editar_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-pen-to-square"></i></a></td>
+                        <td style="width: 50px;">
                             <a href="#" onClick="validar('eliminar_evento.php?id=<?php echo $fila['id']; ?>')"><i class="basurita fa-solid fa-trash-can"></i></a>
                         </td>
                     </tr>
