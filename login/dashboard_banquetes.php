@@ -30,7 +30,7 @@
                     echo "<br>";
                     echo '<button class="buttonsbmt" type="submit">Eliminar Menú</button>';
                     echo '</form>';
-                    
+
                     echo '</div>';
                 }
             } else {
