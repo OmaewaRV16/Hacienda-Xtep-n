@@ -13,18 +13,19 @@
         <form action="agregar_banquete_menu.php" method="post" enctype="multipart/form-data">
             <h1>Menú Banquete</h1>
             <div>
-            <input class="inputext" type="text" placeholder="Insertar Nombre del Platillo">
+            <input class="inputext" type="text" name="nombre_menu" placeholder="Insertar Nombre del Menú" required>
            </div>
            <br>
            <div>
-           <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Platillo"></textarea>
+           <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Menú" required></textarea>
            </div>
            <br>
            <div>
-            <h5>Inserta La Foto del Platillo: </h5>
+            <h5>Inserta La Foto del Menú: </h5>
             <br>
-            <input class="inputext" type="file" name="images" id="images">
+            <input class="inputext" type="file" name="imagen" id="imagen" required>
            </div>
+           <button class="buttonsbmt">Enviar</button>
         </form>
     </div>
 
