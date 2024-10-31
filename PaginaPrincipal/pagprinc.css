@@ -218,43 +218,43 @@ nav a:hover {
     }
 }
 
-.foto1:hover .articleimglg {
+.foto1:active .articleimglg {
   bottom: 10px;
 }
 
-.foto2:hover .articleimg {
+.foto2:active .articleimg {
   bottom: 10px;
 }
 
-.foto3:hover .articleimg {
+.foto3:active .articleimg {
   bottom: 10px;;
 }
 
-.foto4:hover .articleimg {
+.foto4:active .articleimg {
   bottom: 10px;
 }
 
-.foto5:hover .articleimglg {
+.foto5:active .articleimglg {
   bottom: 10px;
 }
 
-.foto6:hover .articleimg {
+.foto6:active .articleimg {
   bottom: 10px;
 }
 
-.foto7:hover .articleimg {
+.foto7:active .articleimg {
   bottom: 10px;
 }
 
-.foto8:hover .articleimg {
+.foto8:active .articleimg {
   bottom: 10px;
 }
 
-.foto9:hover .articleimglg {
+.foto9:active .articleimglg {
   bottom: 10px;
 }
 
-.articleimg:hover {
+.articleimg:active {
   bottom: 5px;
 }
 
@@ -279,7 +279,7 @@ nav a:hover {
   opacity: 0.7;
 }
 
-.imgscale:hover {
+.imgscale:active {
   transform: scale(1.2);
   opacity: 1;
   z-index: 20;

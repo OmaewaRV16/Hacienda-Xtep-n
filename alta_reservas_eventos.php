@@ -20,7 +20,7 @@
                 </div>
 
                 <div>
-                    <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" minlength="10" maxlength="10" required>
+                <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" maxlength="10" required pattern="[0-9]{10}" inputmode="numeric" title="Ingresa un número de 10 dígitos">
                     <select id="evento" name="evento" required>
                         <option value="" disabled selected>Selecciona un tipo de evento</option>
                         <option value="boda">Boda</option>
@@ -34,7 +34,7 @@
 
                 <div>
                     <span>Seleccione fecha de reserva: </span><input type="date" name="fecha" id="fecha" required>
-                    <input type="number" name="invitados" id="invitados" required placeholder="Cantidad de invitados">
+                    <input type="number" name="invitados" id="invitados" required min="1" max="9999" maxlength="4" placeholder="Cantidad de invitados">
                 </div>
 
                 <div>
