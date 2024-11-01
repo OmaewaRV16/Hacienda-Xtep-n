@@ -37,8 +37,7 @@ body {
 }
 
 .buttonsbmt {
-    margin: auto;
-    padding: 10px 20px;
+    width: 50%;
     font-family: "Lora";
     background-color: var(--Blanco);
     border-radius: 50px;
@@ -110,4 +109,24 @@ h1 {
 hr {
     background-color: var(--Texto);
     height: 10px;
+}
+
+.contenedor_btn {
+    gap: 5px;
+    display: flex;
+    width: 80%;
+    height: 55px;
+    padding: 5px;
+    margin: auto;
+}
+
+.contenedor_btn a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
 }

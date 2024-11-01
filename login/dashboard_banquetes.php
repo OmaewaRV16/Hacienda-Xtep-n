@@ -24,12 +24,11 @@
                     echo '<h2>' . htmlspecialchars($fila['nombre_menu']) . '</h2>';
                     echo '<img src="' . htmlspecialchars($fila['imagen']) . '" alt="Imagen de ' . htmlspecialchars($fila['nombre_menu']) . '">';
                     echo '<p>' . htmlspecialchars($fila['descripcion']) . '</p>';
-                    // Botón de eliminar
-                    echo '<form action="eliminar_banquete_menu.php" method="post" class="delete-form">';
-                    echo '<input type="hidden" name="id" value="' . htmlspecialchars($fila['id']) . '">';
                     echo "<br>";
-                    echo '<button class="buttonsbmt" type="submit">Eliminar Menú</button>';
-                    echo '</form>';
+                    echo '<div class="contenedor_btn">';
+                    echo '<button class="buttonsbmt"><a href="editar_menu?id=' . $fila['id'] . '">Editar</a></button>';
+                    echo '<button class="buttonsbmt">Eliminar</button>';
+                    echo '</div>';
 
                     echo '</div>';
                 }
