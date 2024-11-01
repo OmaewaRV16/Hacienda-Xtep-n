@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import '../login/styles/colors.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+hr {
+    background-color: var(--Texto);
+    height: 10px;
+    border: none;
+}
+
+.contenedor {
+    margin: 50px auto;
+    width: 90%;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.contenedor_frm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.menu-card {
+    background-size: cover; /* Cubrir el contenedor con la imagen */
+    background-position: center; /* Centrar la imagen */
+    margin: 10px;
+    padding: 15px;
+    position: relative; /* Necesario para posicionar el contenido dentro */
+    width: calc(30% - 30px); /* Tres tarjetas por fila */
+    width: 260px;
+    height: 450px; /* Altura fija para las tarjetas */
+    overflow: hidden; /* Esconder contenido que sobresalga */
+    transition: transform 0.5s, box-shadow 0.5s; /* Transición para la tarjeta */
+}
+
+.menu-content {
+    text-align: justify;
+    position: absolute; /* Posicionar el contenido sobre la imagen */
+    top: 0; /* Alinear al contenido en la parte superior */
+    left: 0; /* Alinear a la izquierda */
+    right: 0; /* Alinear a la derecha */
+    bottom: 0; /* Alinear en la parte inferior */
+    padding: 10px; /* Espaciado alrededor del contenido */
+    background: rgba(45, 43, 43, 0.906); /* Fondo blanco semi-transparente */
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.30s ease-in-out; /* Transición suave */
+}
+
+.menu-card:hover .menu-content {
+    opacity: 1; /* Mostrar el contenido al pasar el mouse */
+}
+
+.menu-card h2 {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: var(--Texto);
+}
+
+.menu-card h3 {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .menu-card {
+        width: calc(45% - 30px); /* Dos tarjetas por fila en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-card {
+        width: 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
+    }
+}

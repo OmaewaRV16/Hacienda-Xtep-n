@@ -9,6 +9,7 @@
 }
 
 body {
+    font-family: "Lora";
     display: flex;
     flex-direction: column;
     background-color: #e5d3cf;
@@ -37,7 +38,8 @@ body {
 }
 
 .buttonsbmt {
-    width: 50%;
+    width: 30%;
+    height: 40px;
     font-family: "Lora";
     background-color: var(--Blanco);
     border-radius: 50px;
@@ -58,10 +60,11 @@ body {
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    background-color: var(--Blanco);
+    background-color: var(--Secundario);
 }
 
 h1 {
+    font-family: "Lora";
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 2rem;
@@ -80,7 +83,7 @@ h1 {
 .menu-card {
     background-color: #e6e6e6;
     border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 2px rgba(0, 0, 0, 0.1);
     width: 280px;
     padding: 1rem;
     text-align: center;
@@ -88,21 +91,22 @@ h1 {
 }
 
 .menu-card img {
-    width: 100%;
+    width: 90%;
     height: auto;
-    border-radius: 20px;
     margin-bottom: 1rem;
+    border: 1px black solid;
 }
 
 .menu-card h2 {
     font-size: 1.5rem;
-    color: #444;
+    color: var(--Negro);
     margin-bottom: 0.5rem;
 }
 
 .menu-card p {
     font-size: 1rem;
-    color: #666;
+    color: var(--Texto);
+    font-weight: bold;
     line-height: 1.5;
 }
 
@@ -129,4 +133,18 @@ hr {
     padding: 0;
     margin: 0;
     border: none;
+}
+
+.buttonsbmt2 {
+    width: 50%;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+    display: inline-block;
+}
+
+
+.buttonsbmt2:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
 }
