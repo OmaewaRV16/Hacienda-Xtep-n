@@ -24,6 +24,7 @@ table {
     text-align: center;
     padding: 50px;
     border-collapse: collapse;
+    border: 2px var(--Texto) solid;
 }
 
 table th {
@@ -37,10 +38,10 @@ table th {
 
 .tabla {
     margin: 60px;
-    border: 2px var(--Texto) solid;
 }
 
 .tabla td {
+    padding: 0 5px;
     width: 10%;
     height: 40px;
     font-size: 14px;
