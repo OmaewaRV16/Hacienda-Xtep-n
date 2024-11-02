@@ -26,10 +26,9 @@
                     echo '<p>' . htmlspecialchars($fila['descripcion']) . '</p>';
                     echo "<br>";
                     echo '<div class="contenedor_btn">';
-                    echo '<button class="buttonsbmt"><a href="editar_menu?id=' . $fila['id'] . '">Editar</a></button>';
-                    echo '<button class="buttonsbmt">Eliminar</button>';
+                    echo '<button class="buttonsbmt2"><a href="editar_menu.php?id=' . $fila['id'] . '">Editar</a></button>';
+                    echo '<button class="buttonsbmt2" onClick="validar(\'eliminar_menu.php?id=' . $fila['id'] . '\')">Eliminar</button>';
                     echo '</div>';
-
                     echo '</div>';
                 }
             } else {
@@ -37,7 +36,14 @@
             }
             ?>
         </div>
+        <script>
+        function validar(url) {
+            var eliminar = confirm("¿Deseas eliminar este menu-banquete?");
+            if (eliminar) {
+                window.location = url;
+            }
+        }
+        </script>
     </div>
 </body>
 </html>
-

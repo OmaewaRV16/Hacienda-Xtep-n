@@ -7,20 +7,21 @@
     <title>Reservas</title>
 </head>
 <body>
-    <?php include "menu_principal.php";?>
+    <?php include "menu_principal.php"; ?>
     <hr>
     <div class="contenedor">
         <div class="contenedor_frm">
             <h2>Reservar Evento</h2>
             <br>
-            <form action="agregar_reserva_evento.php" method="post">
+            <form action="agregar_reserva_evento.php?token=123456" method="post">
+                <input type="hidden" name="auth_code" value="codigo_secreto">
                 <div>
                     <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre completo" required>
-                    <input type="email" name="email"  id="email" placeholder="Ingresa tu correo electronico" required>
+                    <input type="email" name="email" id="email" placeholder="Ingresa tu correo electronico" required>
                 </div>
 
                 <div>
-                <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" maxlength="10" required pattern="[0-9]{10}" inputmode="numeric" title="Ingresa un número de 10 dígitos">
+                    <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" maxlength="10" required pattern="[0-9]{10}" inputmode="numeric" title="Ingresa un número de 10 dígitos">
                     <select id="evento" name="evento" required>
                         <option value="" disabled selected>Selecciona un tipo de evento</option>
                         <option value="boda">Boda</option>
@@ -38,7 +39,7 @@
                 </div>
 
                 <div>
-                <textarea class="inputext" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Describe los detalles adicionales del evento" required></textarea>
+                    <textarea class="inputext" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Describe los detalles adicionales del evento" required></textarea>
                 </div>
 
                 <input type="submit" value="Reservar">
@@ -47,20 +48,20 @@
     </div>
 
     <script>
-    const fechaEventoInput = document.getElementById('fecha');
+        const fechaEventoInput = document.getElementById('fecha');
 
-    function obtenerFechaActual() {
-        const hoy = new Date();
-        const dia = ('0' + hoy.getDate()).slice(-2);
-        const mes = ('0' + (hoy.getMonth() + 1)).slice(-2);
-        const anio = hoy.getFullYear();
-        return `${anio}-${mes}-${dia}`;
-    }
+        function obtenerFechaActual() {
+            const hoy = new Date();
+            const dia = ('0' + hoy.getDate()).slice(-2);
+            const mes = ('0' + (hoy.getMonth() + 1)).slice(-2);
+            const anio = hoy.getFullYear();
+            return `${anio}-${mes}-${dia}`;
+        }
 
-    const fechaActual = obtenerFechaActual();
-    fechaEventoInput.min = fechaActual;
+        const fechaActual = obtenerFechaActual();
+        fechaEventoInput.min = fechaActual;
     </script>
 
-    <?php include "pie_pagina.php"?>
+    <?php include "pie_pagina.php"; ?>
 </body>
 </html>
