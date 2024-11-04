@@ -8,11 +8,6 @@
   font-family: "Lora";
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -23,8 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 100px);
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
 }
 
@@ -38,7 +32,6 @@ body {
 }
 
 .form {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;

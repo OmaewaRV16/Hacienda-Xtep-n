@@ -41,8 +41,7 @@ hr {
     padding: 15px;
     position: relative; /* Necesario para posicionar el contenido dentro */
     width: calc(30% - 30px); /* Tres tarjetas por fila */
-    width: 260px;
-    height: 450px; /* Altura fija para las tarjetas */
+    height: 300px; /* Altura fija para las tarjetas */
     overflow: hidden; /* Esconder contenido que sobresalga */
     transition: transform 0.5s, box-shadow 0.5s; /* Transición para la tarjeta */
 }
