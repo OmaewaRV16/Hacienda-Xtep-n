@@ -32,12 +32,11 @@ table th {
     width: 5%;
     height: 30px;
     background-color: var(--Texto);
-    /* border: 2px var(--Negro) solid; */
     color: var(--Blanco);
 }
 
 .tabla {
-    margin: 60px;
+    margin: 40px;
 }
 
 .tabla td {
@@ -48,7 +47,6 @@ table th {
     background-color: var(--Blanco);
     border-left: 1px var(--Texto) solid;
 }
-
 
 .information h2 {
     margin: 0;
@@ -162,4 +160,75 @@ hr {
     position: absolute;
     right: 15px;
     top: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="date"] {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid var(--Texto);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Lora", sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--Principal);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+    padding: 10px 15px;
+    background-color: var(--Secundario);
+    color: var(--Negro);
+    border: none;
+    border-radius: 5px;
+    border: 2px solid;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--Texto);
+    transform: translateY(-2px);
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--Texto);
+}
+
+.highlight {
+    background-color: yellow; /* Color del subrayado */
+    font-weight: bold; /* Negrita para resaltar */
+}
+.btn {
+    padding: 10px 20px;
+    background-color: var(--Secundario); /* Color principal definido en colors.css */
+    color: var(--Negro); /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    border: 2px solid;
+    font-size: 16px; /* Tamaño de fuente */
+    font-family: "Lora", sans-serif; /* Fuente definida */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+}
+
+.btn:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+    transform: translateY(-2px);
+}
+
+.btn:focus {
+    outline: none; /* Sin contorno al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al hacer foco */
 }

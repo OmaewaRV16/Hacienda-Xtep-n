@@ -1,4 +1,4 @@
-<?php require "seguridad.php";?>
+<?php require "seguridad.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,11 +19,23 @@
 
             <?php
             require "conexion.php";
-            $id_reserva = $_GET['id'];
+            $id_reserva = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
             // Consulta para obtener los detalles de la reserva
-            $verreserva = "SELECT * FROM reservas_eventos WHERE id = '$id_reserva'";
+            $verreserva = "SELECT * FROM reservas_eventos 
+            INNER JOIN banquete_menu ON reservas_eventos.menu_banquete = banquete_menu.id
+            WHERE reservas_eventos.id = '$id_reserva'";
             $resultado = mysqli_query($conectar, $verreserva);
+            
+            if (!$resultado) {
+                die("Error en la consulta: " . mysqli_error($conectar));
+            }
+            
+            if (mysqli_num_rows($resultado) == 0) {
+                echo "No se encontró la reserva.";
+                exit;
+            }
+
             $fila = $resultado->fetch_array();
 
             // Función para convertir el mes al formato en español
@@ -31,7 +43,7 @@
                 $meses_ingles = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
                 $meses_espanol = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
                 
-                return str_replace($meses_ingles, $meses_espanol, strftime("%d de %B de %Y", strtotime($fecha)));
+                return str_replace($meses_ingles, $meses_espanol, date("d \d\e F \d\e Y", strtotime($fecha)));
             }
 
             // Convertir la fecha del evento al formato español
@@ -57,11 +69,17 @@
                 <h3>Cantidad de Invitados</h3>
                 <h4><?php echo $fila["invitados"]; ?></h4>
                 <hr>
+                <h3>Banquete-Menu</h3>
+                <h4><?php echo $fila["nombre_menu"]; ?></h4>
+                <hr>
                 <h3>Detalles Adicionales</h3>
                 <h4><?php echo $fila["mensaje"]; ?></h4>
                 <hr>
                 <br>
-                <a href="editar_reserva_evento.php?id=<?php echo $fila['id']; ?>"><button class="btn2">Editar Reserva</button></a>
+                
+                <a href="editar_evento.php?id=<?php echo $id_reserva; ?>">
+                    <button class="btn2">Editar Reserva</button>
+                </a>
             </div>
         </div>
     </div>

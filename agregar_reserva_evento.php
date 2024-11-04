@@ -32,7 +32,7 @@ if ($_POST['auth_code'] !== 'codigo_secreto') {
     exit;
 }
 
-// Recibimos los datos del formulario
+// Recibir los datos del formulario
 $nombre = addslashes($_POST['nombre']);
 $email = addslashes($_POST['email']);
 $telefono = addslashes($_POST['telefono']);
@@ -40,6 +40,7 @@ $tipo_evento = addslashes($_POST['evento']);
 $fecha = addslashes($_POST['fecha']);
 $invitados = addslashes($_POST['invitados']);
 $mensaje = addslashes($_POST['mensaje']);
+$menu_banquete = addslashes($_POST['menu_banquete']);  // Nuevo campo para el menú de banquete
 
 // Verificar si ya existe una reserva para la misma fecha
 $verificar_fecha = mysqli_query($conectar, "SELECT * FROM reservas_eventos WHERE fecha = '$fecha'");
@@ -55,7 +56,7 @@ if (mysqli_num_rows($verificar_fecha) > 0) {
 }
 
 // Insertar los datos en la base de datos
-$insertar = "INSERT INTO reservas_eventos (nombre, email, telefono, evento, fecha, invitados, mensaje) VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje')";
+$insertar = "INSERT INTO reservas_eventos (nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete) VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete')";
 
 $query = mysqli_query($conectar, $insertar);
 
