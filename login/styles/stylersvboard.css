@@ -232,6 +232,7 @@ label {
     outline: none; /* Sin contorno al hacer foco */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al hacer foco */
 }
+<<<<<<< HEAD
 
 /* Estilos para la barra de búsqueda con íconos */
 .search-bar {
@@ -278,3 +279,5 @@ hr {
     border-radius: 5px;
     border: 1px solid #ccc; /* Borde del select */
 }
+=======
+>>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
