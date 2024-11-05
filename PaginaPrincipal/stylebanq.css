@@ -5,11 +5,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
     font-family: 'Lora';
-=======
-    font-family: 'Lora', serif;
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 }
 
 html, body {
@@ -43,19 +39,13 @@ hr {
     background-position: center; /* Centrar la imagen */
     margin: 10px;
     padding: 15px;
-<<<<<<< HEAD
     border-radius: 15px;
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
     position: relative; /* Necesario para posicionar el contenido dentro */
     width: calc(30% - 30px); /* Tres tarjetas por fila */
     height: 300px; /* Altura fija para las tarjetas */
     overflow: hidden; /* Esconder contenido que sobresalga */
     transition: transform 0.5s, box-shadow 0.5s; /* Transición para la tarjeta */
-<<<<<<< HEAD
     box-shadow: 0px 0px 15px #868686a6;
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 }
 
 .menu-content {
@@ -65,13 +55,8 @@ hr {
     left: 0; /* Alinear a la izquierda */
     right: 0; /* Alinear a la derecha */
     bottom: 0; /* Alinear en la parte inferior */
-<<<<<<< HEAD
     padding: 20px; /* Espaciado alrededor del contenido */
     background: rgba(255, 255, 255, 0.674); /* Fondo blanco semi-transparente */
-=======
-    padding: 10px; /* Espaciado alrededor del contenido */
-    background: rgba(45, 43, 43, 0.906); /* Fondo blanco semi-transparente */
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
     opacity: 0; /* Inicialmente oculto */
     transition: opacity 0.30s ease-in-out; /* Transición suave */
 }
@@ -92,7 +77,6 @@ hr {
     font-style: italic;
     font-weight: bold;
     font-size: 15px;
-<<<<<<< HEAD
     color: #000000;
 }
 
@@ -110,18 +94,12 @@ hr {
     .contenedor {
         padding: 20px;
     }
-=======
-    color: #ffffff;
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 }
 
 @media (max-width: 768px) {
     .menu-card {
         width: calc(45% - 30px); /* Dos tarjetas por fila en pantallas pequeñas */
-<<<<<<< HEAD
         height: 230px;
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
     }
 }
 

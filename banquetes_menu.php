@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PaginaPrincipal/stylebanq.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="PaginaPrincipal/animate.css">
     <script src="PaginaPrincipal/wow.min.js"></script>
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
     <title>Reservas</title>
 </head>
 <body>
@@ -38,11 +35,7 @@
                 while ($fila = mysqli_fetch_assoc($result)) {
                     // Comprobación de ruta de imagen
                     $imagenUrl = 'login/' . htmlspecialchars($fila['imagen']);
-<<<<<<< HEAD
                     echo '<div class="wow animate__animated animate__zoomIn menu-card" style="background-image: url(\'' . $imagenUrl . '\');">';
-=======
-                    echo '<div class="menu-card" style="background-image: url(\'' . $imagenUrl . '\');">';
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                     echo '<div class="menu-content">';
                     echo '<h2>' . htmlspecialchars($fila['nombre_menu']) . '</h2>';
                     echo '<h3>' . htmlspecialchars($fila['descripcion']) . '</h3>';
@@ -59,11 +52,8 @@
     </div>
 
     <?php include "pie_pagina.php"; ?>
-<<<<<<< HEAD
     <script>
         new WOW().init();
     </script>
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 </body>
 </html>
