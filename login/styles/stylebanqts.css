@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lora";
+}
+
+body {
+    font-family: "Lora";
+    display: flex;
+    flex-direction: column;
+    background-color: #e5d3cf;
+}
+
+.information {
+    margin: 5% auto;
+    padding: 20px;
+    width: 500px;
+    background-color: var(--Blanco);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.information {
+    color: var(--Texto);
+}
+
+.inputext {
+    margin: 10px 50px;
+    width: 350px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+}
+
+.buttonsbmt {
+    width: 30%;
+    height: 40px;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+    display: inline-block;
+}
+
+
+.buttonsbmt:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.contenedor_menu {
+    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--Secundario);
+}
+
+h1 {
+    font-family: "Lora";
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #000000;
+}
+
+.menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    background-color: var(--Secundario);
+    padding: 10px;
+}
+
+.menu-card {
+    background-color: #e6e6e6;
+    border-radius: 20px;
+    box-shadow: 0 8px 2px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-card img {
+    width: 90%;
+    height: auto;
+    margin-bottom: 1rem;
+    border: 1px black solid;
+}
+
+.menu-card h2 {
+    font-size: 1.5rem;
+    color: var(--Negro);
+    margin-bottom: 0.5rem;
+}
+
+.menu-card p {
+    font-size: 1rem;
+    color: var(--Texto);
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+hr {
+    background-color: var(--Texto);
+    height: 10px;
+}
+
+.contenedor_btn {
+    gap: 5px;
+    display: flex;
+    width: 80%;
+    height: 55px;
+    padding: 5px;
+    margin: auto;
+}
+
+.contenedor_btn a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.buttonsbmt2 {
+    width: 50%;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+    display: inline-block;
+}
+
+
+.buttonsbmt2:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.file-container {
+    display: flex; /* Usamos flexbox para alinear en línea */
+    flex-direction: column; /* Alinea verticalmente */
+}
+.file-container input[type="file"] {
+    margin-bottom: 5px; /* Espaciado entre el input y el texto */
+}
+.file-info {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    color: red; /* Color de texto gris */
+}

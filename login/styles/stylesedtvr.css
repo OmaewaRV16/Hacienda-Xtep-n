@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lora";
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #e5d3cf;
+}
+
+.information {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin:20px auto;
+    padding: 20px;
+    flex-direction: column;
+    background-color: var(--Blanco);
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0px 0px 40px #7700002d;
+}
+
+.information h2 {
+    margin: 15px;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+.btn2 {
+    margin: 20px;
+    width: 140px;
+    padding: 10px;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+}
+
+.btn2:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.back {
+    position: absolute;
+    font-size: 20px;
+    left: 40px;
+    top: 40px;
+    color: var(--Negro);
+}
+
+.back:hover {
+    color: var(--Principal);
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.date p {
+    font-size: 14px;
+}
+
+.inputextdt {
+    width: 200px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+    font-family: "Lora";
+    margin-left: 12px;
+}
+
+.contenedor_usuario h3{
+    color: var(--Principal);
+}
+
+form input[type="text"],
+form input[type="email"],
+form select {
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid var(--Texto);
+    font-family: "Lora";
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+    outline: none;
+    box-shadow: 0px 0px 40px #7700002d;
+}

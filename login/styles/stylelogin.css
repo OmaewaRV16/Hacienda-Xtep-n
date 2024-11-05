@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5d3cf;
+}
+
+.contenedorfrm {
+  background-color: var(--Secundario);
+  width: 500px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 40px #7700002d;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form h2 {
+  font-size: 20px;
+  font-family: "Lora";
+  text-align: center;
+  padding-bottom: 40px;
+  color: var(--Texto);
+}
+
+.logo {
+  width: 300px;
+  margin: auto;
+  padding: 30px;
+}
+
+.logo img {
+  display: inline-block;
+  width: 100%;
+}
+
+.inputext {
+  margin: auto;
+  width: 350px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 2px var(--Texto) solid;
+}
+
+.inputext:hover {
+  box-shadow: 0px 0px 10px #7700002d;
+}
+
+.buttonsbmt {
+  margin: auto;
+  width: 140px;
+  padding: 10px;
+  font-family: "Lora";
+  background-color: var(--Blanco);
+  border-radius: 50px;
+}
+
+.buttonsbmt:hover {
+  background-color: var(--Texto);
+  color: var(--Blanco);
+}
+
+.form a {
+  text-align: center;
+  margin: auto;
+  color: var(--Texto);
+  font-family: "Lora";
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-shadow: 0px 0px 15px var(--Principal);
+}
+
+.error-container {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  width: 350px;
+  padding: 10px;
+  margin: 0 auto 20px auto;
+  border-radius: 5px;
+  text-align: center;
+  font-family: "Lora";
+}
+
+.avisoerror {
+  font-size: 14px;
+}
+
+
+
+
+

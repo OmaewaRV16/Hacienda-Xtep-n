@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lora";
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #e5d3cf;
+}
+
+.information {
+    text-align: center;
+}
+
+table {
+    font-size: 12px;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    border-collapse: collapse;
+    border: 2px var(--Texto) solid;
+}
+
+table th {
+    margin: 5px;
+    width: 5%;
+    height: 30px;
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.tabla {
+    margin: 40px;
+}
+
+.tabla td {
+    padding: 0 5px;
+    width: 10%;
+    height: 40px;
+    font-size: 14px;
+    background-color: var(--Blanco);
+    border-left: 1px var(--Texto) solid;
+}
+
+.information h2 {
+    margin: 0;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+.basurita {
+    width: 40%;
+    color: var(--Principal);
+}
+
+.tutorial {
+    position: relative;
+}
+
+.tutorial .information {
+    border: 1px red solid;
+    width: 80%;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+    margin: auto;
+    font-family: "Open Sans", sans-serif;
+}
+
+.tutorial .information h1 {
+    color: var(--Negro);
+    font-size: 1.5rem;
+    padding: 0px 10px;
+}
+
+.tutorial .information h3 {
+    color: var(--GrisClaro);
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0px 10px;
+    border-left: 3px solid #F03861;
+}
+
+.tutorial .information p {
+    padding: 10px 0px;
+}
+
+.tutorial ul {
+    font-size: 0;
+    list-style-type: none;
+    background-color: var(--Principal)
+}
+
+.tutorial ul li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: var(--Principal);
+    color: var(--Blanco);
+    display: inline-block;
+    padding: 15px;
+    position: relative;
+}
+
+.tutorial ul li ul {
+    display: none;
+}
+
+.tutorial ul li:hover {
+    cursor: pointer;
+    background-color: #9d3f32;
+}
+
+.tutorial ul li:hover ul {
+    display: block;
+    margin-top: 15px;
+    width: 200px;
+    left: 0;
+    position: absolute;
+}
+
+.tutorial ul li:hover ul li {
+    display: block;
+    background-color: #cc7e73;
+}
+
+.tutorial ul li:hover ul li:hover {
+    background-color: #9d3f32;
+}
+
+.tutorial ul li:hover ul li:hover span {
+    background-color: #ee204e;
+}
+
+.information {
+    text-align: center;
+}
+
+.xtepenimg {
+    width: 20%;
+    height: 10%;
+    border-radius: 20%;
+    background-color: var(--Blanco);
+}
+
+.tutorial a {
+    text-decoration: none;
+    color: var(--Blanco);
+}
+
+.logo-img {
+    width: 40px;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="date"] {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid var(--Texto);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Lora", sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--Principal);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+    padding: 10px 15px;
+    background-color: var(--Secundario);
+    color: var(--Negro);
+    border: none;
+    border-radius: 5px;
+    border: 2px solid;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--Texto);
+    transform: translateY(-2px);
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: var(--Texto);
+}
+
+.highlight {
+    background-color: yellow; /* Color del subrayado */
+    font-weight: bold; /* Negrita para resaltar */
+}
+.btn {
+    padding: 10px 20px;
+    background-color: var(--Secundario); /* Color principal definido en colors.css */
+    color: var(--Negro); /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    border: 2px solid;
+    font-size: 16px; /* Tamaño de fuente */
+    font-family: "Lora", sans-serif; /* Fuente definida */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+}
+
+.btn:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+    transform: translateY(-2px);
+}
+
+.btn:focus {
+    outline: none; /* Sin contorno al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al hacer foco */
+}
+
+/* Estilos para la barra de búsqueda con íconos */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centramos la barra de búsqueda */
+    margin-bottom: 10px;
+    background-color: var(--Secundario); /* Color de fondo */
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un poco de profundidad */
+}
+.search-bar span {
+    margin-left: 20px; /* Espaciado entre el texto y los íconos */
+    font-size: 18px; /* Tamaño del texto */
+}
+.icon {
+    cursor: pointer;
+    margin: 0 5px; /* Espaciado entre íconos */
+    font-size: 20px; /* Tamaño de los íconos */
+    transition: transform 0.2s; /* Animación de hover */
+}
+.icon:hover {
+    transform: scale(1.2); /* Aumentar tamaño al pasar el mouse */
+}
+.realizada {
+    color: green; /* Color para estado realizada */
+}
+.cancelada {
+    color: red; /* Color para estado cancelada */
+}
+.pendiente {
+    color: gray; /* Color para estado pendiente */
+}
+hr {
+    width: 100%;
+    height: 8px;
+    margin: 0;
+    background-color: var(--Texto);
+}
+.mes-select {
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Borde del select */
+}

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import '/login/styles/colors.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lora";
+}
+
+body {
+  background-color: #e5d3cf;
+}
+
+.tabla table {
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+  border-collapse: collapse;
+  /* border-radius: 25px;
+  border: 3px var(--Negro) solid;
+  overflow: hidden; */
+  border: 2px var(--Texto) solid;
+}
+
+.tabla th {
+  margin: 5px;
+  width: 5%;
+  height: 30px;
+  background-color: var(--Texto);
+  /* border: 2px black solid; */
+  color: var(--Blanco);
+}
+
+.tabla td {
+  width: 15%;
+  height: 30px;
+  font-size: 15px;
+  background-color: white;
+  border: 1px var(--Texto) solid;
+}
+
+.basurita {
+  width: 40%;
+  color: var(--Texto);
+  font-size: 20px;
+}

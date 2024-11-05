@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lora";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #e5d3cf;
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+}
+
+.formulario {
+  background-color: var(--Blanco);
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0px 0px 40px #7700002d;
+  color: var(--Texto);
+  padding: 20px;
+}
+
+.form {
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.form h1 {
+    font-family: "Lora";
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputext {
+    margin: 10px 50px;
+    width: 350px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+}
+
+.inputmsj {
+    margin: 10px;
+    width: 350px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px var(--Texto) solid;
+}
+
+.inputext:hover {
+    box-shadow: 0px 0px 40px #7700002d;
+}
+
+.buttonsbmt {
+    margin: auto;
+    padding: 10px 20px;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.buttonsbmt:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.back {
+    position: absolute;
+    font-size: 20px;
+    bottom: 0;
+    color: var(--Negro);
+    bottom: 20;
+    left: 0;
+    margin: 20px;
+}
+
+.back:hover {
+    color: var(--Texto);
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 10px;
+}
+
+.date p {
+    font-size: 14px;
+}
+
+.inputextdt {
+    width: 115px;
+    border: none;
+    padding: 10px 5px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+    font-family: "Lora";
+}
+
+textarea {
+    resize: none;
+}

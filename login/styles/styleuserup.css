@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lora";
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #e5d3cf;
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.formulario {
+  background-color: var(--Blanco);
+  border-radius: 50px;
+  width: 540px;
+  height: 500px;
+  box-shadow: 0px 0px 40px #7700002d;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.form h1 {
+    font-family: "Lora";
+    color: var(--Texto);
+    width: 540px;
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.inputext {
+    margin: 7px;
+    width: 350px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+}
+
+.inputext:hover {
+  box-shadow: 0px 0px 40px #7700002d;;
+}
+
+.buttonsbmt {
+    margin: auto;
+    width: 140px;
+    padding: 10px;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+}
+
+.buttonsbmt:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.back {
+    position: absolute;
+    font-size: 20px;
+    left: 40px;
+    bottom: 0;
+    color: var(--Negro);
+}
+
+.back:hover {
+    color: var(--Texto);
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date, .pic p {
+    font-size: 14px;
+    color: var(--Texto);
+}
+
+.date, .pic {
+  margin: 7px 0;
+}
+
+.inputextdt {
+    width: 200px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+    font-family: "Lora";
+    margin-left: 12px;
+}
+
+.inputextpic {
+  width: 200px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 2px var(--Texto) solid;
+  font-family: "Lora";
+  margin-left: 23px;
+}
