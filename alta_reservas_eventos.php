@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PaginaPrincipal/stylereservas.css">
     <title>Reservas</title>
-<<<<<<< HEAD
     <style>
         /* Estilos para el tooltip */
         .tooltip {
@@ -36,8 +35,6 @@
             opacity: 1;
         }
     </style>
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 </head>
 <body>
     <?php include "menu_principal.php"; ?>
@@ -67,26 +64,17 @@
                 </div>
 
                 <div>
-<<<<<<< HEAD
                     <span>Seleccione fecha de reserva: </span><input class="dte" type="date" name="fecha" id="fecha" required>
                     <div class="tooltip">
                         <input class="inv" type="number" name="invitados" id="invitados" required min="1" max="1000" maxlength="4" placeholder="Cantidad de invitados" oninput="validarCantidadInvitados(this)">
                         <span class="tooltiptext">Máximo 1000 invitados</span> <!-- Tooltip con el mensaje -->
                     </div>
-=======
-                    <span>Seleccione fecha de reserva: </span><input type="date" name="fecha" id="fecha" required>
-                    <input type="number" name="invitados" id="invitados" required min="1" max="9999" maxlength="4" placeholder="Cantidad de invitados">
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                 </div>
 
                 <!-- Select con los menús de banquete -->
                 <div>
                     <select name="menu_banquete" id="menu_banquete" required>
-<<<<<<< HEAD
                         <option value="" disabled selected>Seleccione su Menú</option>
-=======
-                        <option value="" disabled selected>Seleccione Menú del Banquete de su preferencia</option>
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                         <?php
                         // Conexión a la base de datos
                         $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
@@ -113,10 +101,7 @@
                         $conexion->close();
                         ?>
                     </select>
-<<<<<<< HEAD
                     <a class="vm" href="reserva_ver_menu.php" onclick="window.open('reserva_ver_menu.php', 'newwindow', 'width=800,height=600'); return false;">Ver Menús</a>
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                 </div>
 
                 <div>
@@ -141,7 +126,6 @@
 
         const fechaActual = obtenerFechaActual();
         fechaEventoInput.min = fechaActual;
-<<<<<<< HEAD
 
         function validarCantidadInvitados(input) {
             const valor = parseInt(input.value);
@@ -149,8 +133,6 @@
                 input.value = 1000; // Limita el valor a 1000
             }
         }
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
     </script>
 
     <?php include "pie_pagina.php"; ?>

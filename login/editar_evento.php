@@ -66,11 +66,7 @@
                     <input type="hidden" name="telefono" value="<?php echo $fila["telefono"]; ?>">
 
                     <p>Fecha de Evento:</p>
-<<<<<<< HEAD
-                    <input class="inputextdt" type="date" name="fecha" id="fecha" value="<?php echo $fila["fecha"]; ?>">
-=======
                     <input class="inputextdt" type="date" name="fecha" id="fecha" required value="<?php echo $fila["fecha"]; ?>">
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                 </div>
                 <br>
                 <div>

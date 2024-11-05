@@ -2,23 +2,17 @@
 require "seguridad.php"; 
 include "conexion.php";
 
-<<<<<<< HEAD
-// Obtener el estado de búsqueda y el mes de búsqueda si están presentes
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $estado_busqueda = isset($_POST['estado_busqueda']) ? $_POST['estado_busqueda'] : '';
 $mes_busqueda = isset($_POST['mes_busqueda']) ? $_POST['mes_busqueda'] : '';
-=======
-// Obtener la fecha de búsqueda si está presente
-$fecha_busqueda = isset($_POST['fecha_busqueda']) ? $_POST['fecha_busqueda'] : '';
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 
 // Función para convertir el mes a español
 function convertir_mes_espanol($fecha) {
-    $meses_ingles = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-    $meses_espanol = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
-    return str_replace($meses_ingles, $meses_espanol, strftime("%d de %B de %Y", strtotime($fecha)));
+    return date("d \d\e F \d\e Y", strtotime($fecha));
 }
 
-<<<<<<< HEAD
 // Obtener el nombre del mes en español según el número
 function obtener_nombre_mes($mes) {
     $meses = array(
@@ -27,11 +21,9 @@ function obtener_nombre_mes($mes) {
         '07' => 'Julio', '08' => 'Agosto', '09' => 'Septiembre',
         '10' => 'Octubre', '11' => 'Noviembre', '12' => 'Diciembre'
     );
-    return $meses[$mes];
+    return $meses[$mes] ?? '';
 }
 
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -44,7 +36,6 @@ function obtener_nombre_mes($mes) {
 </head>
 <body>
     <?php include "menu.php"; ?>
-<<<<<<< HEAD
     <hr>
     <div class="information">
         <form method="POST">
@@ -69,18 +60,6 @@ function obtener_nombre_mes($mes) {
 
         <!-- Botón "Ver Todas las Reservas" solo aparece si hay un estado de búsqueda -->
         <?php if (!empty($estado_busqueda) || !empty($mes_busqueda)): ?>
-=======
-    <br><br>
-    <div class="information">
-        <form method="POST" onsubmit="return validarFecha()">
-            <label for="fecha_busqueda">Buscar por Fecha:</label>
-            <input type="date" id="fecha_busqueda" name="fecha_busqueda" required>
-            <input type="submit" value="Buscar">
-        </form>
-
-        <!-- Botón "Ver Todas las Reservas" solo aparece si hay una fecha de búsqueda -->
-        <?php if (!empty($fecha_busqueda)): ?>
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
             <a href="dashboard_eventos.php"><button class="btn">Ver Todas las Reservas</button></a>
         <?php endif; ?>
 
@@ -100,30 +79,20 @@ function obtener_nombre_mes($mes) {
 
                 <?php
                 // Consulta base para obtener todas las reservas
-<<<<<<< HEAD
                 $todas_reservas = "SELECT * FROM reservas_eventos WHERE 1=1";
 
                 // Filtrar solo si hay un estado de búsqueda
                 if (!empty($estado_busqueda)) {
-                    $todas_reservas .= " AND estado = '$estado_busqueda'";
+                    $todas_reservas .= " AND estado = '" . mysqli_real_escape_string($conectar, $estado_busqueda) . "'";
                 }
 
                 // Filtrar solo si hay un mes de búsqueda
                 if (!empty($mes_busqueda)) {
-                    $todas_reservas .= " AND MONTH(fecha) = '$mes_busqueda'";
+                    $todas_reservas .= " AND MONTH(fecha) = '" . mysqli_real_escape_string($conectar, $mes_busqueda) . "'";
                 }
 
                 $todas_reservas .= " ORDER BY id ASC";
 
-=======
-                $todas_reservas = "SELECT * FROM reservas_eventos ORDER BY id ASC";
-
-                // Filtrar solo si hay una fecha de búsqueda
-                if (!empty($fecha_busqueda)) {
-                    $todas_reservas = "SELECT * FROM reservas_eventos WHERE DATE(fecha) = '$fecha_busqueda' ORDER BY id ASC";
-                }
-
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                 $resultado = mysqli_query($conectar, $todas_reservas);
 
                 // Verificar si se encontraron resultados
@@ -133,7 +102,6 @@ function obtener_nombre_mes($mes) {
                         $fecha = convertir_mes_espanol($fila["fecha"]);
                         $fecha_db = date('Y-m-d', strtotime($fila["fecha"]));
 
-<<<<<<< HEAD
                         // Determina el icono del estado
                         $icono_estado = '';
                         if ($fila['estado'] == 'realizada') {
@@ -142,19 +110,6 @@ function obtener_nombre_mes($mes) {
                             $icono_estado = '<i class="fas fa-times-circle cancelada" style="color: red;"></i>';
                         } else {
                             $icono_estado = '<i class="fas fa-clock pendiente" style="color: gray;"></i>'; // Estado pendiente
-=======
-                        // Verifica si la fecha de la fila coincide con la fecha de búsqueda
-                        $resaltar = ($fecha_busqueda == $fecha_db) ? 'highlight' : '';
-                        
-                        // Determina el icono del estado
-                        $icono_estado = '';
-                        if ($fila['estado'] == 'realizada') {
-                            $icono_estado = '<i class="fas fa-check-circle" style="color: green;"></i>';
-                        } elseif ($fila['estado'] == 'cancelada') {
-                            $icono_estado = '<i class="fas fa-times-circle" style="color: red;"></i>';
-                        } else {
-                            $icono_estado = '<i class="fas fa-clock" style="color: gray;"></i>'; // Estado pendiente
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                         }
                 ?>
                         <tr>
@@ -162,11 +117,7 @@ function obtener_nombre_mes($mes) {
                             <td><?php echo $fila["nombre"]; ?></td>
                             <td><?php echo $fila["email"]; ?></td>
                             <td><?php echo $fila["telefono"]; ?></td>
-<<<<<<< HEAD
                             <td><?php echo $fecha; ?></td>
-=======
-                            <td><?php echo $resaltar ? "<span class='highlight'>" . $fecha . "</span>" : $fecha; ?></td>
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                             <td style="text-align: center; width: 10px;"><?php echo $icono_estado; ?></td>
                             <td style="width: 50px;"><a href="ver_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-eye"></i></a></td>
                             <td style="width: 50px;"><a href="editar_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-pen-to-square"></i></a></td>
@@ -178,18 +129,13 @@ function obtener_nombre_mes($mes) {
                     }
                 } else {
                     // Mostrar mensaje si no se encuentran resultados
-<<<<<<< HEAD
                     echo "<tr><td colspan='9' style='text-align: center; padding: 20px;'>No se encontraron reservas para el estado o mes especificado.</td></tr>";
-=======
-                    echo "<tr><td colspan='9' style='text-align: center; padding: 20px;'>No se encontraron reservas para la fecha especificada.</td></tr>";
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                 }
                 ?>
             </table>
         </div>
     </div>
     <script>
-<<<<<<< HEAD
         function buscarEstado(estado) {
             // Crear un formulario oculto para enviar el estado
             const form = document.createElement('form');
@@ -207,27 +153,12 @@ function obtener_nombre_mes($mes) {
             form.submit();
         }
 
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
         function validar(url) {
             var eliminar = confirm("¿Deseas eliminar esta reserva?");
             if (eliminar == true) {
                 window.location = url;
             }
         }
-<<<<<<< HEAD
-=======
-
-        function validarFecha() {
-            var fecha = document.getElementById('fecha_busqueda').value;
-            var regex = /^\d{4}-\d{2}-\d{2}$/; // Expresión regular para validar formato YYYY-MM-DD
-            if (!regex.test(fecha)) {
-                alert("Por favor, introduce la fecha en el formato YYYY-MM-DD.");
-                return false; // Detiene el envío del formulario
-            }
-            return true; // Permite el envío del formulario
-        }
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
     </script>
 </body>
 </html>

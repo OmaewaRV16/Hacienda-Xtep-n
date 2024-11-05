@@ -147,7 +147,6 @@ hr {
 .buttonsbmt2:hover {
     background-color: var(--Texto);
     color: var(--Blanco);
-<<<<<<< HEAD
 }
 
 .file-container {
@@ -160,6 +159,4 @@ hr {
 .file-info {
     font-size: 12px; /* Tamaño de fuente más pequeño */
     color: red; /* Color de texto gris */
-=======
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
 }
