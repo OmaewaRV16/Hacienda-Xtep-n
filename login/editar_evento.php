@@ -18,7 +18,6 @@
         require "conexion.php";
         $id = $_GET['id'];
 
-<<<<<<< HEAD
         // Consulta para obtener los detalles de la reserva y el nombre del menú usando LEFT JOIN
         $verevento = "SELECT reservas_eventos.*, banquete_menu.nombre_menu 
                       FROM reservas_eventos 
@@ -38,15 +37,6 @@
             echo "No se encontró el evento con el ID: " . $id;
             exit; // O redirige a otra página si es necesario
         }
-=======
-        // Consulta para obtener los detalles de la reserva y el nombre del menú
-        $verevento = "SELECT reservas_eventos.*, banquete_menu.nombre_menu 
-                      FROM reservas_eventos 
-                      INNER JOIN banquete_menu ON reservas_eventos.menu_banquete = banquete_menu.id 
-                      WHERE reservas_eventos.id = '$id'";
-        $resultado = mysqli_query($conectar, $verevento);
-        $fila = $resultado->fetch_array();
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
         ?>
 
         <div class="formulario">
@@ -95,11 +85,7 @@
                 <div>
                     <label for="menu_banquete">Menú Banquete:</label>
                     <select class="inputext" id="menu_banquete" name="menu_banquete" required>
-<<<<<<< HEAD
                         <option value="" disabled <?php echo ($fila['menu_banquete'] == null) ? 'selected' : ''; ?>>Selecciona un menú</option>
-=======
-                        <option value="" disabled>Selecciona un menú</option>
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
                         <?php
                         // Obtener todos los menús de la base de datos
                         $query_menus = "SELECT * FROM banquete_menu";
