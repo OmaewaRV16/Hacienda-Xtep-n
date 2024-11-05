@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($pesofoto > 1000000) {
         echo '
         <script>
-        alert("Es demasiado pesada la imagen del menú. El tamaño máximo permitido es 1 mb.");
+        alert("Es demasiado pesada la imagen del menú,  El tamaño máximo permitido es 1 mb.");
         window.history.go(-1);
         </script>
         ';

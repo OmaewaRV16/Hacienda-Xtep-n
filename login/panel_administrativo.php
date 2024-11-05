@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylemenu.css">
+    <link rel="stylesheet" href="PaginaPrincipal/animate.css">
+    <script src="PaginaPrincipal/wow.min.js"></script>
     <title>Menu</title>
 </head>
 <body>
     <?php include "menu.php";?>
     <br><br>
     <div class="information">
-        <img class="xtepenimg" src="imagenes/xtepen-logo-500-shadow.png" alt="">
+        <img class="wow animate__animated xtepenimg" src="imagenes/xtepen-logo-500-shadow.png" alt="">
         <br><br>
 
         <?php
@@ -28,5 +30,8 @@
 
 
     </div>
+    <script>
+        new WOW().init();
+    </script>
 </body>
 </html

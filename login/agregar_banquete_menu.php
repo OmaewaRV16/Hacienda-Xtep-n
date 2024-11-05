@@ -21,7 +21,7 @@ $tipofoto = $_FILES['imagen']['type'];
 if ($pesofoto > 900000) {
     echo '
     <script>
-    alert("Es demasiado pesada la imagen del menú");
+    alert("El tamaño de imagen permitido es de 1 mb");
     window.history.go(-1);
     </script>
     ';
@@ -33,7 +33,7 @@ if ($tipofoto == "image/jpeg" || $tipofoto == "image/png" || $tipofoto == "image
 } else {
     echo '
     <script>
-    alert("El archivo no es una imagen");
+    alert("El archivo debe ser una imagen. Tipos permitidos: JPEG, PNG, GIF.");
     window.history.go(-1);
     </script>
     ';
