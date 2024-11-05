@@ -9,7 +9,6 @@
     <title>Reservas</title>
 </head>
 <body>
-    <?php include "menu_principal.php"; ?>
     <hr>
 
     <div class="contenedor">
@@ -50,8 +49,6 @@
             ?>
         </div>
     </div>
-
-    <?php include "pie_pagina.php"; ?>
     <script>
         new WOW().init();
     </script>

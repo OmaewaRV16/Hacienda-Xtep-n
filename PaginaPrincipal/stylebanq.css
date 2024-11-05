@@ -5,7 +5,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Lora', serif;
+    font-family: 'Lora';
 }
 
 html, body {
@@ -39,11 +39,13 @@ hr {
     background-position: center; /* Centrar la imagen */
     margin: 10px;
     padding: 15px;
+    border-radius: 15px;
     position: relative; /* Necesario para posicionar el contenido dentro */
     width: calc(30% - 30px); /* Tres tarjetas por fila */
     height: 300px; /* Altura fija para las tarjetas */
     overflow: hidden; /* Esconder contenido que sobresalga */
     transition: transform 0.5s, box-shadow 0.5s; /* Transición para la tarjeta */
+    box-shadow: 0px 0px 15px #868686a6;
 }
 
 .menu-content {
@@ -53,8 +55,8 @@ hr {
     left: 0; /* Alinear a la izquierda */
     right: 0; /* Alinear a la derecha */
     bottom: 0; /* Alinear en la parte inferior */
-    padding: 10px; /* Espaciado alrededor del contenido */
-    background: rgba(45, 43, 43, 0.906); /* Fondo blanco semi-transparente */
+    padding: 20px; /* Espaciado alrededor del contenido */
+    background: rgba(255, 255, 255, 0.674); /* Fondo blanco semi-transparente */
     opacity: 0; /* Inicialmente oculto */
     transition: opacity 0.30s ease-in-out; /* Transición suave */
 }
@@ -75,12 +77,29 @@ hr {
     font-style: italic;
     font-weight: bold;
     font-size: 15px;
-    color: #ffffff;
+    color: #000000;
+}
+
+@media screen and (max-width: 900px) {
+    .menu-card {
+        width: calc(45% - 30px); /* Dos tarjetas por fila en pantallas pequeñas */
+        height: 200px;
+        padding: 10px;
+    }
+
+    .menu-content {
+        padding: 10px;
+    }
+
+    .contenedor {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 768px) {
     .menu-card {
         width: calc(45% - 30px); /* Dos tarjetas por fila en pantallas pequeñas */
+        height: 230px;
     }
 }
 

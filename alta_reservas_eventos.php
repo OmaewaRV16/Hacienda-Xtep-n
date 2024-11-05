@@ -34,14 +34,14 @@
                 </div>
 
                 <div>
-                    <span>Seleccione fecha de reserva: </span><input type="date" name="fecha" id="fecha" required>
-                    <input type="number" name="invitados" id="invitados" required min="1" max="9999" maxlength="4" placeholder="Cantidad de invitados">
+                    <span>Seleccione fecha de reserva: </span><input class="dte" type="date" name="fecha" id="fecha" required>
+                    <input class="inv" type="number" name="invitados" id="invitados" required min="1" max="9999" maxlength="4" placeholder="Cantidad de invitados">
                 </div>
 
                 <!-- Select con los menús de banquete -->
                 <div>
                     <select name="menu_banquete" id="menu_banquete" required>
-                        <option value="" disabled selected>Seleccione Menú del Banquete de su preferencia</option>
+                        <option value="" disabled selected>Seleccione su Menú</option>
                         <?php
                         // Conexión a la base de datos
                         $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
@@ -68,6 +68,8 @@
                         $conexion->close();
                         ?>
                     </select>
+                    <a class="vm" href="reserva_ver_menu.php" onclick="window.open('reserva_ver_menu.php', 'newwindow', 'width=800,height=600'); return false;">Ver Menús</a>
+
                 </div>
 
                 <div>
