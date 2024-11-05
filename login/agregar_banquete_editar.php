@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipofoto = $_FILES['imagen']['type'];
 
     // Validaciones de la imagen
-    if ($pesofoto > 900000) {
+    if ($pesofoto > 1000000) {
         echo '
         <script>
-        alert("Es demasiado pesada la imagen del menú. El tamaño máximo permitido es 900 KB.");
+        alert("Es demasiado pesada la imagen del menú. El tamaño máximo permitido es 1 mb.");
         window.history.go(-1);
         </script>
         ';
