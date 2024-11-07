@@ -148,3 +148,15 @@ hr {
     background-color: var(--Texto);
     color: var(--Blanco);
 }
+
+.file-container {
+    display: flex; /* Usamos flexbox para alinear en línea */
+    flex-direction: column; /* Alinea verticalmente */
+}
+.file-container input[type="file"] {
+    margin-bottom: 5px; /* Espaciado entre el input y el texto */
+}
+.file-info {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    color: red; /* Color de texto gris */
+}

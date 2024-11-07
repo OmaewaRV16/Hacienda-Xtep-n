@@ -39,7 +39,7 @@
                     <input class="inputext" type="number" id="invitados" name="invitados" placeholder="Cantidad de invitados" required min="1" max="1000" oninput="validarInvitados(this)">
                     
                     <!-- Select para el menú de banquete -->
-                    <select class="inputext" name="menu_banquete" id="menu_banquete" required>
+                    <select class="inputext" name="menu_banquete" id="menu_banquete">
                         <option value="" disabled selected>Seleccione Menú del Banquete de su preferencia</option>
                         <?php
                             $query = "SELECT id, nombre_menu FROM banquete_menu";

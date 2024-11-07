@@ -232,3 +232,49 @@ label {
     outline: none; /* Sin contorno al hacer foco */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra al hacer foco */
 }
+
+/* Estilos para la barra de búsqueda con íconos */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centramos la barra de búsqueda */
+    margin-bottom: 10px;
+    background-color: var(--Secundario); /* Color de fondo */
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un poco de profundidad */
+}
+.search-bar span {
+    margin-left: 20px; /* Espaciado entre el texto y los íconos */
+    font-size: 18px; /* Tamaño del texto */
+}
+.icon {
+    cursor: pointer;
+    margin: 0 5px; /* Espaciado entre íconos */
+    font-size: 20px; /* Tamaño de los íconos */
+    transition: transform 0.2s; /* Animación de hover */
+}
+.icon:hover {
+    transform: scale(1.2); /* Aumentar tamaño al pasar el mouse */
+}
+.realizada {
+    color: green; /* Color para estado realizada */
+}
+.cancelada {
+    color: red; /* Color para estado cancelada */
+}
+.pendiente {
+    color: gray; /* Color para estado pendiente */
+}
+hr {
+    width: 100%;
+    height: 8px;
+    margin: 0;
+    background-color: var(--Texto);
+}
+.mes-select {
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Borde del select */
+}

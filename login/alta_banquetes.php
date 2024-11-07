@@ -12,23 +12,23 @@
     <div class="information">
         <form action="agregar_banquete_menu.php" method="post" enctype="multipart/form-data">
             <h1>Menú Banquete</h1>
+            <label class="file-info">Campos Obligatorios *.</label>
             <div>
-            <input class="inputext" type="text" name="nombre_menu" placeholder="Insertar Nombre del Menú" required>
-           </div>
-           <br>
-           <div>
-           <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Menú" required></textarea>
-           </div>
-           <br>
-           <div>
-            <h5>Inserta La Foto del Menú: </h5>
+                <input class="inputext" type="text" name="nombre_menu" placeholder="Insertar Nombre del Menú *" required>
+            </div>
             <br>
-            <input class="inputext" type="file" name="imagen" id="imagen" required>
-           </div>
-           <button class="buttonsbmt">Enviar</button>
+            <div>
+                <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Menú *" required></textarea>
+            </div>
+            <br>
+            <div class="file-container">
+                <h5>Inserta La Foto del Menú: *</h5>
+                <input class="inputext" type="file" name="imagen" id="imagen" required>
+                <label class="file-info">(El máximo de peso de la imagen debe ser de 1MB, <br> solo acepta formatos en JPEG, PNG, GIF y JPG).</label>
+                <br>
+            </div>
+            <button class="buttonsbmt">Enviar</button>
         </form>
     </div>
-
-
 </body>
 </html>
