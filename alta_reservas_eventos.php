@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PaginaPrincipal/stylereservas.css">
+    <link rel="stylesheet" href="PaginaPrincipal/animate.css">
     <title>Reservas</title>
     <style>
         /* Estilos para el tooltip */
@@ -39,9 +40,10 @@
 <body>
     <?php include "menu_principal.php"; ?>
     <hr>
-    <div class="contenedor">
+    <div class="contenedor animate__animated animate__zoomIn animate__faster">
         <div class="contenedor_frm">
-            <h2>Reservar Evento</h2>
+            <h2>Reservar Evento</h2><br>
+            <h5>TODOS LOS CAMPOS OBLIGATORIOS</h5>
             <br>
             <form action="agregar_reserva_evento.php?token=123456" method="post">
                 <input type="hidden" name="auth_code" value="codigo_secreto">
