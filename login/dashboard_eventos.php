@@ -8,9 +8,22 @@ ini_set('display_errors', 1);
 $estado_busqueda = isset($_POST['estado_busqueda']) ? $_POST['estado_busqueda'] : '';
 $mes_busqueda = isset($_POST['mes_busqueda']) ? $_POST['mes_busqueda'] : '';
 
-// Función para convertir el mes a español
+// Función para convertir el mes a español usando IntlDateFormatte
+// Función alternativa para convertir el mes a español sin IntlDateFormatter
 function convertir_mes_espanol($fecha) {
-    return date("d \d\e F \d\e Y", strtotime($fecha));
+    $meses = [
+        '01' => 'Enero', '02' => 'Febrero', '03' => 'Marzo',
+        '04' => 'Abril', '05' => 'Mayo', '06' => 'Junio',
+        '07' => 'Julio', '08' => 'Agosto', '09' => 'Septiembre',
+        '10' => 'Octubre', '11' => 'Noviembre', '12' => 'Diciembre'
+    ];
+
+    $date = new DateTime($fecha);
+    $dia = $date->format('d');
+    $mes = $meses[$date->format('m')];
+    $anio = $date->format('Y');
+
+    return "$dia de $mes de $anio";
 }
 
 // Obtener el nombre del mes en español según el número
@@ -57,6 +70,12 @@ function obtener_nombre_mes($mes) {
                 </select>
             </div>
         </form>
+
+        <div class="reporte">
+            <?php if (empty($estado_busqueda) && empty($mes_busqueda)): ?>
+            <a href="descargar_reporte.php" target="_blank"><button class="btn">Descargar Reporte PDF</button></a>
+            <?php endif; ?>
+         </div>
 
         <!-- Botón "Ver Todas las Reservas" solo aparece si hay un estado de búsqueda -->
         <?php if (!empty($estado_busqueda) || !empty($mes_busqueda)): ?>
@@ -134,6 +153,7 @@ function obtener_nombre_mes($mes) {
                 ?>
             </table>
         </div>
+
     </div>
     <script>
         function buscarEstado(estado) {

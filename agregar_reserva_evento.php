@@ -55,8 +55,22 @@ if (mysqli_num_rows($verificar_fecha) > 0) {
     exit;
 }
 
+// Verificar si el menu_banquete existe en la tabla banquete_menu
+$verificar_menu = mysqli_query($conectar, "SELECT id FROM banquete_menu WHERE id = '$menu_banquete'");
+
+if (mysqli_num_rows($verificar_menu) == 0) {
+    echo '
+    <script>
+        alert("El menú seleccionado no existe. Por favor, selecciona un menú válido.");
+        location.href="alta_reservas_eventos.php";
+    </script>
+    ';
+    exit;
+}
+
 // Insertar los datos en la base de datos
-$insertar = "INSERT INTO reservas_eventos (nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete) VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete')";
+$insertar = "INSERT INTO reservas_eventos (nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete) 
+VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete')";
 
 $query = mysqli_query($conectar, $insertar);
 

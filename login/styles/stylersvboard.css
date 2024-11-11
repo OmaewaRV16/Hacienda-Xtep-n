@@ -36,7 +36,7 @@ table th {
 }
 
 .tabla {
-    margin: 40px;
+    margin: 20px;
 }
 
 .tabla td {
@@ -277,4 +277,13 @@ hr {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc; /* Borde del select */
+}
+
+.reporte {
+
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
