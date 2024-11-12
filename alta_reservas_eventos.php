@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PaginaPrincipal/stylereservas.css">
-    <title>Reservas</title>
+    <title>Reservar Evento</title>
 </head>
 <body>
     <?php include "menu_principal.php"; ?>
@@ -25,7 +25,7 @@
                     <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" maxlength="10" required pattern="[0-9]{10}" inputmode="numeric" title="Ingresa un número de 10 dígitos">
                     
                     <select id="evento" name="evento" required>
-                        <option value="" disabled selected>Selecciona un tipo de evento</option>
+                        <option value="" disabled>Selecciona un tipo de evento</option>
                         <option value="boda">Boda</option>
                         <option value="quinceanera">Quinceañera</option>
                         <option value="corporativo">Evento Corporativo</option>
@@ -45,8 +45,8 @@
                 </div>
 
                 <div>
-                <select name="menu_banquete" id="menu_banquete" required>
-                        <option value="" disabled selected>Seleccione su Menú</option>
+                    <select name="menu_banquete" id="menu_banquete" required>
+                        <option value="" disabled>Seleccione su Menú</option>
                         <?php
                         // Conexión a la base de datos
                         $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
@@ -85,33 +85,32 @@
     </div>
 
     <script>
-    // Obtener los parámetros de la URL
-    const urlParams = new URLSearchParams(window.location.search);
+        // Obtener los parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
 
-    let invitados = urlParams.get('invitados');
-
-   
-    // Función para llenar el campo de invitados
-    function validarCantidadInvitados(input) {
-        const valor = parseInt(input.value);
-        if (valor > 1000) {
-            input.value = 1000; // Limita el valor a 1000
+        // Asignar los valores de los parámetros a los campos del formulario si existen en la URL
+        if (urlParams.has('evento')) {
+            document.getElementById('evento').value = urlParams.get('evento');
         }
-    }
+        if (urlParams.has('menu_banquete')) {
+            document.getElementById('menu_banquete').value = urlParams.get('menu_banquete');
+        }
+        if (urlParams.has('invitados')) {
+            document.getElementById('invitados').value = urlParams.get('invitados');
+        }
 
-    // Configuración de la fecha mínima
-    const fechaEventoInput = document.getElementById('fecha');
-    const fechaActual = new Date().toISOString().split('T')[0];
-    fechaEventoInput.min = fechaActual;
+        // Función para llenar el campo de invitados
+        function validarCantidadInvitados(input) {
+            const valor = parseInt(input.value);
+            if (valor > 1000) {
+                input.value = 1000; // Limita el valor a 1000
+            }
+        }
 
-  
-    const invitadosInput = document.getElementById('invitados');
-
-    // Asignar el valor de invitados
-    invitadosInput.value = invitados;
-
- 
-
+        // Configuración de la fecha mínima
+        const fechaEventoInput = document.getElementById('fecha');
+        const fechaActual = new Date().toISOString().split('T')[0];
+        fechaEventoInput.min = fechaActual;
     </script>
 
     <?php include "pie_pagina.php"; ?>
