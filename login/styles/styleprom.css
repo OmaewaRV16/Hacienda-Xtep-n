@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import './colors.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lora";
+}
+
+body {
+    font-family: "Lora";
+    display: flex;
+    flex-direction: column;
+    background-color: #e5d3cf;
+}
+
+.information {
+    margin: 5% auto;
+    padding: 20px;
+    width: 500px;
+    background-color: var(--Blanco);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.information {
+    color: var(--Texto);
+}
+
+.inputext {
+    margin: 10px 50px;
+    width: 350px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px var(--Texto) solid;
+}
+
+.buttonsbmt {
+    width: 30%;
+    height: 40px;
+    font-family: "Lora";
+    background-color: var(--Blanco);
+    border-radius: 50px;
+    display: inline-block;
+}
+
+
+.buttonsbmt:hover {
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.file-container {
+    display: flex; /* Usamos flexbox para alinear en línea */
+    flex-direction: column; /* Alinea verticalmente */
+}
+.file-container input[type="file"] {
+    margin-bottom: 5px; /* Espaciado entre el input y el texto */
+}
+.file-info {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    color: red; /* Color de texto gris */
+}
+
+
+.contenedor_menu {
+    margin: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--Secundario);
+}
+
+h1 {
+    font-family: "Lora";
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #000000;
+}
+
+hr {
+    background-color: var(--Texto);
+    height: 10px;
+}
+
+.menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    background-color: var(--Secundario);
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.menu-card {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    position: relative;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, border-radius 0.3s ease;
+}
+
+.menu-card:hover img {
+    transform: scale(1.05);
+    border-radius: 10px;
+}
+
+.menu-card h2 {
+    font-size: 1.6rem;
+    color: var(--Negro);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.menu-card p {
+    font-size: 1rem;
+    color: var(--Texto);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.contenedor_btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.buttonsbmt2 {
+    background-color: var(--Blanco);
+    color: var(--Negro);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    border: 2px solid;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttonsbmt2:hover {
+    background-color: var(--Texto);
+}
+
+.buttonsbmt2 a {
+    color: var(--Negro);
+    text-decoration: none;
+}
+
+.buttonsbmt2:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal img {
+    width: 100%;
+    height: auto;
+}
+
+.ver-foto {
+    cursor: pointer;
+}
+
+.ver-foto img {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.ver-foto img:hover {
+    transform: scale(1.05);
+}
+
