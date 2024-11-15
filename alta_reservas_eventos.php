@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PaginaPrincipal/stylereservas.css">
-    <title>Reservar Evento</title>
+    <title>Reservas</title>
 </head>
 <body>
     <?php include "menu_principal.php"; ?>
@@ -25,7 +25,7 @@
                     <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" maxlength="10" required pattern="[0-9]{10}" inputmode="numeric" title="Ingresa un número de 10 dígitos">
                     
                     <select id="evento" name="evento" required>
-                        <option value="" disabled>Selecciona un tipo de evento</option>
+                        <option value="" disabled selected>Selecciona un tipo de evento</option>
                         <option value="boda">Boda</option>
                         <option value="quinceanera">Quinceañera</option>
                         <option value="corporativo">Evento Corporativo</option>
@@ -42,11 +42,12 @@
                         <input class="inv" type="number" name="invitados" id="invitados" required min="1" max="1000" maxlength="4" placeholder="Cantidad de invitados" oninput="validarCantidadInvitados(this)">
                         <span class="tooltiptext">Máximo 1000 invitados</span>
                     </div>
+
                 </div>
 
                 <div>
-                    <select name="menu_banquete" id="menu_banquete" required>
-                        <option value="" disabled selected>Seleccione Menú del Banquete de su preferencia</option>
+                <select name="menu_banquete" id="menu_banquete" required>
+                        <option value="" disabled selected>Seleccione su Menú</option>
                         <?php
                         // Conexión a la base de datos
                         $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
@@ -73,6 +74,39 @@
                         $conexion->close();
                         ?>
                     </select>
+                    <a class="vm" href="reserva_ver_menu.php" onclick="window.open('reserva_ver_menu.php', 'newwindow', 'width=800,height=600'); return false;">Ver Menús</a>
+
+                </div>
+
+                <div>
+                <select name="personal" id="personal" required>
+                        <option value="" disabled selected>Seleccione su Menú</option>
+                        <?php
+                        // Conexión a la base de datos
+                        $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
+
+                        // Verificar si hubo error en la conexión
+                        if ($conexion->connect_error) {
+                            die("Error de conexión: " . $conexion->connect_error);
+                        }
+
+                        // Consulta para obtener los menús de banquete
+                        $consulta = "SELECT id_personal, nombre_personal FROM personal";
+                        $resultado = $conexion->query($consulta);
+
+                        // Agregar cada menú de banquete como opción en el select
+                        if ($resultado->num_rows > 0) {
+                            while ($fila = $resultado->fetch_assoc()) {
+                                echo '<option value="'.$fila['id_personal'].'">'.$fila['nombre_personal'].'</option>';
+                            }
+                        } else {
+                            echo '<option value="" disabled>No hay menús disponibles</option>';
+                        }
+
+                        // Cerrar la conexión
+                        $conexion->close();
+                        ?>
+                    </select>
                 </div>
 
                 <div>
@@ -85,18 +119,33 @@
     </div>
 
     <script>
-        const fechaEventoInput = document.getElementById('fecha');
+    // Obtener los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
 
-        function obtenerFechaActual() {
-            const hoy = new Date();
-            const dia = ('0' + hoy.getDate()).slice(-2);
-            const mes = ('0' + (hoy.getMonth() + 1)).slice(-2);
-            const anio = hoy.getFullYear();
-            return `${anio}-${mes}-${dia}`;
+    let invitados = urlParams.get('invitados');
+
+   
+    // Función para llenar el campo de invitados
+    function validarCantidadInvitados(input) {
+        const valor = parseInt(input.value);
+        if (valor > 1000) {
+            input.value = 1000; // Limita el valor a 1000
         }
+    }
 
-        const fechaActual = obtenerFechaActual();
-        fechaEventoInput.min = fechaActual;
+    // Configuración de la fecha mínima
+    const fechaEventoInput = document.getElementById('fecha');
+    const fechaActual = new Date().toISOString().split('T')[0];
+    fechaEventoInput.min = fechaActual;
+
+  
+    const invitadosInput = document.getElementById('invitados');
+
+    // Asignar el valor de invitados
+    invitadosInput.value = invitados;
+
+ 
+
     </script>
 
     <?php include "pie_pagina.php"; ?>

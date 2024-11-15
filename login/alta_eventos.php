@@ -40,13 +40,26 @@
                     
                     <!-- Select para el menú de banquete -->
                     <select class="inputext" name="menu_banquete" id="menu_banquete">
-                        <option value="" disabled selected>Seleccione Menú del Banquete de su preferencia</option>
+                        <option value="" disabled selected>Seleccione Menú del Banquete</option>
                         <?php
                             $query = "SELECT id, nombre_menu FROM banquete_menu";
                             $result = mysqli_query($conectar, $query);
                             if ($result && mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['nombre_menu']) . "</option>";
+                                }
+                            }
+                        ?>
+                    </select>
+
+                    <select class="inputext" name="personal" id="personal">
+                        <option value="" disabled selected>Seleccione el Personal (categoria)</option>
+                        <?php
+                            $query = "SELECT id_personal, nombre_personal FROM personal";
+                            $result = mysqli_query($conectar, $query);
+                            if ($result && mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value='" . $row['id_personal'] . "'>" . htmlspecialchars($row['nombre_personal']) . "</option>";
                                 }
                             }
                         ?>

@@ -240,7 +240,7 @@ label {
     justify-content: center; /* Centramos la barra de búsqueda */
     margin-bottom: 10px;
     background-color: var(--Secundario); /* Color de fondo */
-    padding: 5px;
+    padding: 1px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un poco de profundidad */
 }
@@ -286,4 +286,39 @@ hr {
     align-items: center;
     justify-content: space-between;
     flex-direction: row-reverse;
+}
+
+/* Estilo de la paginación */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.paginacion a, .paginacion span {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: var(--Secundario);
+    border: 1px solid var(--Negro);
+    color: var(--Texto);
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.paginacion a:hover {
+    background-color: #ddd;
+}
+
+.paginacion span {
+    background-color: #bbb;
+    color: var(--Texto);
+}
+
+.paginacion a:disabled {
+    background-color: #ccc;
+    color: #999;
+    pointer-events: none;
 }

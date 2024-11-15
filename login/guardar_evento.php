@@ -9,7 +9,8 @@ $tipo_evento = addslashes($_POST['evento']);
 $fecha = addslashes($_POST['fecha']);
 $invitados = addslashes($_POST['invitados']);
 $mensaje = addslashes($_POST['mensaje']);
-$menu_banquete = addslashes($_POST['menu_banquete']); // Capturamos el menú seleccionado
+$menu_banquete = addslashes($_POST['menu_banquete']);
+$personal = addslashes($_POST['personal']); // Capturamos el personal seleccionado
 
 // Verificar si ya existe una reserva para la misma fecha
 $verificar_fecha = mysqli_query($conectar, 
@@ -25,10 +26,10 @@ if (mysqli_num_rows($verificar_fecha) > 0) {
     exit;
 }
 
-// Insertar los datos en la base de datos, incluyendo el menú de banquete seleccionado
+// Insertar los datos en la base de datos, incluyendo el personal seleccionado
 $insertar = "INSERT INTO reservas_eventos
-(nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete)
-VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete')";
+(nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete, personal)
+VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete', '$personal')";
 
 $query = mysqli_query($conectar, $insertar);
 

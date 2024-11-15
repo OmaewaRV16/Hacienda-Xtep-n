@@ -41,6 +41,7 @@ $fecha = addslashes($_POST['fecha']);
 $invitados = addslashes($_POST['invitados']);
 $mensaje = addslashes($_POST['mensaje']);
 $menu_banquete = addslashes($_POST['menu_banquete']);  // Nuevo campo para el menú de banquete
+$personal = addslashes($_POST['personal']);
 
 // Verificar si ya existe una reserva para la misma fecha
 $verificar_fecha = mysqli_query($conectar, "SELECT * FROM reservas_eventos WHERE fecha = '$fecha'");
@@ -68,9 +69,22 @@ if (mysqli_num_rows($verificar_menu) == 0) {
     exit;
 }
 
+// Verificar si el menu_banquete existe en la tabla banquete_menu
+$verificar_personal = mysqli_query($conectar, "SELECT id_personal FROM personal WHERE id_personal = '$personal'");
+
+if (mysqli_num_rows($verificar_personal) == 0) {
+    echo '
+    <script>
+        alert("El menú seleccionado no existe. Por favor, selecciona un menú válido.");
+        location.href="alta_reservas_eventos.php";
+    </script>
+    ';
+    exit;
+}
+
 // Insertar los datos en la base de datos
-$insertar = "INSERT INTO reservas_eventos (nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete) 
-VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete')";
+$insertar = "INSERT INTO reservas_eventos (nombre, email, telefono, evento, fecha, invitados, mensaje, menu_banquete, personal) 
+VALUES ('$nombre', '$email', '$telefono', '$tipo_evento', '$fecha', '$invitados', '$mensaje', '$menu_banquete', '$personal')";
 
 $query = mysqli_query($conectar, $insertar);
 

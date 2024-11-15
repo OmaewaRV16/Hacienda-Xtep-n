@@ -1,4 +1,4 @@
-<?php require "seguridad.php";?>
+<?php require "seguridad.php"; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,17 +21,29 @@
             require "conexion.php";
             $id_reserva = $_GET['id'];
 
-            // Consulta para obtener los detalles de la reserva
-            $verreserva = "SELECT * FROM reservas_eventos WHERE id = '$id_reserva'";
+            $verreserva = "
+    SELECT reservas_eventos.*, personal.nombre_personal, banquete_menu.nombre_menu 
+    FROM reservas_eventos
+    LEFT JOIN personal ON reservas_eventos.personal = personal.id_personal
+    LEFT JOIN banquete_menu ON reservas_eventos.menu_banquete = banquete_menu.id
+    WHERE reservas_eventos.id = '$id_reserva'
+";
+
             $resultado = mysqli_query($conectar, $verreserva);
             $fila = $resultado->fetch_array();
 
             // Función para convertir el mes al formato en español
             function convertir_mes_espanol($fecha) {
-                $meses_ingles = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-                $meses_espanol = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
-                
-                return str_replace($meses_ingles, $meses_espanol, strftime("%d de %B de %Y", strtotime($fecha)));
+                $date = new DateTime($fecha);
+                $meses_espanol = array(
+                    'January' => 'Enero', 'February' => 'Febrero', 'March' => 'Marzo',
+                    'April' => 'Abril', 'May' => 'Mayo', 'June' => 'Junio',
+                    'July' => 'Julio', 'August' => 'Agosto', 'September' => 'Septiembre',
+                    'October' => 'Octubre', 'November' => 'Noviembre', 'December' => 'Diciembre'
+                );
+                $mes_en_ingles = $date->format('F');
+                $mes_espanol = $meses_espanol[$mes_en_ingles];
+                return $date->format("d") . " de " . $mes_espanol . " de " . $date->format("Y");
             }
 
             // Convertir la fecha del evento al formato español
@@ -57,11 +69,17 @@
                 <h3>Cantidad de Invitados</h3>
                 <h4><?php echo $fila["invitados"]; ?></h4>
                 <hr>
+                <h3>Nombre del Personal</h3>
+                <h4><?php echo $fila["nombre_personal"]; ?></h4>
+                <hr>
+                <h3>Nombre del Menú de Banquete</h3>
+                <h4><?php echo $fila["nombre_menu"]; ?></h4>
+                <hr>
                 <h3>Detalles Adicionales</h3>
                 <h4><?php echo $fila["mensaje"]; ?></h4>
                 <hr>
                 <br>
-                <a href="editar_reserva_evento.php?id=<?php echo $fila['id']; ?>"><button class="btn2">Editar Reserva</button></a>
+                <a href="editar_evento.php?id=<?php echo $fila['id']; ?>"><button class="btn2">Editar Reserva</button></a>
             </div>
         </div>
     </div>

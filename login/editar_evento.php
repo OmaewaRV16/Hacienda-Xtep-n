@@ -19,10 +19,12 @@
         $id = $_GET['id'];
 
         // Consulta para obtener los detalles de la reserva y el nombre del menú usando LEFT JOIN
-        $verevento = "SELECT reservas_eventos.*, banquete_menu.nombre_menu 
-                      FROM reservas_eventos 
-                      LEFT JOIN banquete_menu ON reservas_eventos.menu_banquete = banquete_menu.id 
-                      WHERE reservas_eventos.id = '$id'";
+        $verevento = "SELECT reservas_eventos.*, banquete_menu.nombre_menu, personal.nombre_personal
+              FROM reservas_eventos 
+              LEFT JOIN banquete_menu ON reservas_eventos.menu_banquete = banquete_menu.id
+              LEFT JOIN personal ON reservas_eventos.personal = personal.id_personal
+              WHERE reservas_eventos.id = '$id'";
+
         $resultado = mysqli_query($conectar, $verevento);
         
         // Verificar si la consulta se ejecutó correctamente
@@ -93,6 +95,22 @@
                         while ($menu = mysqli_fetch_array($result_menus)) {
                             $selected = ($menu['id'] == $fila['menu_banquete']) ? 'selected' : '';
                             echo "<option value='{$menu['id']}' $selected>{$menu['nombre_menu']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="personl">Personal:</label>
+                    <select class="inputext" id="personal" name="personal" required>
+                        <option value="" disabled <?php echo ($fila['personal'] == null) ? 'selected' : ''; ?>>Selecciona Personal Categoria</option>
+                        <?php
+                        // Obtener todos los menús de la base de datos
+                        $query_personal = "SELECT * FROM personal";
+                        $result_personal = mysqli_query($conectar, $query_personal);
+                        while ($personal = mysqli_fetch_array($result_personal)) {
+                            $selected = ($personal['id_personal'] == $fila['personal']) ? 'selected' : '';
+                            echo "<option value='{$personal['id_personal']}' $selected>{$personal['nombre_personal']}</option>";
                         }
                         ?>
                     </select>
