@@ -17,13 +17,13 @@
             </div>
             <br>
             <div>
-                <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion de la Promoción" required></textarea>
+                <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripción de la Promoción" required></textarea>
             </div>
 
             <div class="file-container">
                 <h5>Inserta Imagen de Muestra:</h5>
-                <input class="inputext" type="file" name="imagen" id="imagen" required>
-                <label class="file-info">(El máximo de peso de la imagen debe ser de 1MB, <br> solo acepta formatos en JPEG, PNG, GIF y JPG).</label>
+                <input class="inputext" type="file" name="imagen" id="imagen" accept="image/jpeg, image/png, image/gif, image/jpg" required>
+                <label class="file-info">(El máximo de peso de la imagen debe ser de 1MB, solo acepta formatos en JPEG, PNG, GIF y JPG).</label>
                 <br>
             </div>
             <button class="buttonsbmt">Enviar</button>
@@ -33,15 +33,15 @@
     <script>
         function validateForm() {
             // Validación de nombre de la promoción
-            var nombrePromocion = document.getElementById("nombre_promocion").value;
-            if (nombrePromocion == "") {
+            var nombrePromocion = document.getElementById("nombre_promocion").value.trim();
+            if (nombrePromocion === "") {
                 alert("El nombre de la promoción es obligatorio.");
                 return false;
             }
 
             // Validación de descripción
-            var descripcion = document.getElementById("descripcion").value;
-            if (descripcion == "") {
+            var descripcion = document.getElementById("descripcion").value.trim();
+            if (descripcion === "") {
                 alert("La descripción de la promoción es obligatoria.");
                 return false;
             }

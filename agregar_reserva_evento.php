@@ -37,6 +37,8 @@ $nombre = addslashes($_POST['nombre']);
 $email = addslashes($_POST['email']);
 $telefono = addslashes($_POST['telefono']);
 $tipo_evento = addslashes($_POST['evento']);
+$evento = $_POST['evento'];
+$mensaje = $_POST['mensaje'];
 $fecha = addslashes($_POST['fecha']);
 $invitados = addslashes($_POST['invitados']);
 $mensaje = addslashes($_POST['mensaje']);
@@ -93,7 +95,7 @@ if ($query) {
 // Enviar correo (opcional)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = 'https://script.google.com/macros/s/AKfycbwevdSQ-zuTImAnojMbB82HhLgScPp8dGQWYZ9rQOeptMA_s0wXOctSgiSrR-Z8lFmwgQ/exec';
-    $data = array('email' => $email, 'fecha' => $fecha, 'nombre' => $nombre);
+    $data = array('email' => $email, 'fecha' => $fecha, 'nombre' => $nombre, 'telefono' =>$telefono, 'evento' => $evento, 'invitados' => $invitados, 'mensaje' => $mensaje);
 
     $options = array(
         'http' => array(
