@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensaje = mysqli_real_escape_string($conectar, $_POST['mensaje']);
     $menu_banquete = mysqli_real_escape_string($conectar, $_POST['menu_banquete']); // Captura el menú seleccionado
     $estado = mysqli_real_escape_string($conectar, $_POST['estado']); // Captura el estado del evento
+    $personal = isset($_POST['personal']) ? mysqli_real_escape_string($conectar, $_POST['personal']) : null; // Captura el personal seleccionado o NULL
 
     // Verificar si la fecha ya está registrada (exceptuando el evento actual)
     $verificar_fecha = mysqli_query($conectar, 
@@ -27,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); // Detener el procesamiento del formulario
     } else {
         // Preparar la consulta de actualización
-        // Preparar la consulta de actualización
         $actualizarEvento = "UPDATE reservas_eventos SET 
         nombre = '$nombre',
         email = '$email',
@@ -37,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         evento = '$evento',
         mensaje = '$mensaje',
         menu_banquete = '$menu_banquete',
-        estado = '$estado' 
+        estado = '$estado',
+        personal = " . ($personal ? "'$personal'" : "NULL") . " 
         WHERE id = '$id'";
-
 
         // Ejecutar la consulta
         if (mysqli_query($conectar, $actualizarEvento)) {

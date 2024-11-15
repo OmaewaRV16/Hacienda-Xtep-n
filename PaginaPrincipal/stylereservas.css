@@ -123,7 +123,6 @@ input[type="submit"]:hover {
     }
 }
 
-        Estilos para el tooltip
 .tooltip {
     position: relative;
     display: inline-block;
@@ -140,12 +139,12 @@ input[type="submit"]:hover {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 100%; /* Colocar el tooltip arriba */
+    bottom: 100%; /* Coloca el tooltip arriba */
     left: 50%;
     margin-left: -60px; /* Centramos el tooltip */
     opacity: 0;
     transition: opacity 0.3s;
-    }
+}
 
 .tooltip:hover .tooltiptext {
     visibility: visible;

@@ -64,7 +64,6 @@ body {
     color: red; /* Color de texto gris */
 }
 
-
 .contenedor_menu {
     margin: auto;
     width: 90%;
@@ -185,7 +184,7 @@ hr {
 }
 
 .modal-content {
-    margin: 5% auto;
+    margin: 8% auto;
     padding: 20px;
     background-color: white;
     border: 1px solid #888;
@@ -211,9 +210,9 @@ hr {
 
 .modal img {
     display: block;
-    width: 60%;
-    height: 60%;
-    margin: 0 auto; /* centra horizontalmente */
+    width: 70%;
+    height: auto;
+    margin: auto; /* centra horizontalmente */
 }
 
 
@@ -229,4 +228,3 @@ hr {
 .ver-foto img:hover {
     transform: scale(1.05);
 }
-

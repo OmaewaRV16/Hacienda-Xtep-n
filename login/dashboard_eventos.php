@@ -5,11 +5,17 @@ include "conexion.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$estado_busqueda = isset($_POST['estado_busqueda']) ? $_POST['estado_busqueda'] : '';
-$mes_busqueda = isset($_POST['mes_busqueda']) ? $_POST['mes_busqueda'] : '';
+$estado_busqueda = isset($_POST['estado_busqueda']) ? $_POST['estado_busqueda'] : (isset($_GET['estado_busqueda']) ? $_GET['estado_busqueda'] : '');
+$mes_busqueda = isset($_POST['mes_busqueda']) ? $_POST['mes_busqueda'] : (isset($_GET['mes_busqueda']) ? $_GET['mes_busqueda'] : '');
+
+// Número de resultados por página
+$limit = 10;
+
+// Determinar la página actual
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$start = ($page - 1) * $limit; // Calculamos el inicio de la consulta
 
 // Función para convertir el mes a español usando IntlDateFormatte
-// Función alternativa para convertir el mes a español sin IntlDateFormatter
 function convertir_mes_espanol($fecha) {
     $meses = [
         '01' => 'Enero', '02' => 'Febrero', '03' => 'Marzo',
@@ -36,7 +42,6 @@ function obtener_nombre_mes($mes) {
     );
     return $meses[$mes] ?? '';
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -46,19 +51,47 @@ function obtener_nombre_mes($mes) {
     <link rel="stylesheet" href="styles/stylersvboard.css">
     <script src="https://kit.fontawesome.com/b971a45ca4.js" crossorigin="anonymous"></script>
     <title>Reservas</title>
+    <script>
+        function buscarEstado(estado) {
+            // Obtener el valor actual de mes_busqueda
+            var mes_busqueda = document.getElementById('mes_busqueda').value;
+            
+            // Redirigir a la página con los parámetros de estado y mes
+            window.location.href = "?estado_busqueda=" + estado + "&mes_busqueda=" + mes_busqueda;
+        }
+
+        function buscarMes() {
+            // Obtener el estado seleccionado
+            var estado_busqueda = document.querySelector('input[name="estado_busqueda"]:checked') ? document.querySelector('input[name="estado_busqueda"]:checked').value : '';
+            
+            // Obtener el valor del mes seleccionado
+            var mes_busqueda = document.getElementById('mes_busqueda').value;
+
+            // Redirigir a la página con los parámetros de estado y mes
+            window.location.href = "?estado_busqueda=" + estado_busqueda + "&mes_busqueda=" + mes_busqueda;
+        }
+    </script>
 </head>
 <body>
     <?php include "menu.php"; ?>
     <hr>
     <div class="information">
-        <form method="POST">
-            <div class="search-bar">
-                <span>Buscar por Estado:</span>
-                <i class="fas fa-check-circle icon realizada" title="Realizada" onclick="buscarEstado('realizada')"></i>
-                <i class="fas fa-times-circle icon cancelada" title="Cancelada" onclick="buscarEstado('cancelada')"></i>
-                <i class="fas fa-clock icon pendiente" title="Pendiente" onclick="buscarEstado('pendiente')"></i>
-                <span>Buscar por Mes:</span>
-                <select name="mes_busqueda" class="mes-select" onchange="this.form.submit()">
+        <div class="search-bar">
+            <form action="" method="GET">
+                <br>
+                <label>Buscar por Estado:</label>
+                <a type="button" onclick="buscarEstado('realizada')" class="search-btn">
+                    <i class="fas fa-check-circle icon realizada" title="Realizada"></i>
+                </a>
+                <a type="button" onclick="buscarEstado('cancelada')" class="search-btn">
+                    <i class="fas fa-times-circle icon cancelada" title="Cancelada"></i>
+                </a>
+                <a type="button" onclick="buscarEstado('pendiente')" class="search-btn">
+                    <i class="fas fa-clock icon pendiente" title="Pendiente"></i>
+                </a>
+
+                <label>Buscar por Mes:</label>
+                <select id="mes_busqueda" class="mes-select" onchange="buscarMes()">
                     <option value="">Seleccionar Mes</option>
                     <?php
                     for ($mes = 1; $mes <= 12; $mes++) {
@@ -68,14 +101,15 @@ function obtener_nombre_mes($mes) {
                     }
                     ?>
                 </select>
-            </div>
-        </form>
+            </form>
+        </div>
+        <br>
 
         <div class="reporte">
             <?php if (empty($estado_busqueda) && empty($mes_busqueda)): ?>
             <a href="descargar_reporte.php" target="_blank"><button class="btn">Descargar Reporte PDF</button></a>
             <?php endif; ?>
-         </div>
+        </div>
 
         <!-- Botón "Ver Todas las Reservas" solo aparece si hay un estado de búsqueda -->
         <?php if (!empty($estado_busqueda) || !empty($mes_busqueda)): ?>
@@ -97,7 +131,7 @@ function obtener_nombre_mes($mes) {
                 </tr>
 
                 <?php
-                // Consulta base para obtener todas las reservas
+                // Consulta base para obtener todas las reservas con paginación
                 $todas_reservas = "SELECT * FROM reservas_eventos WHERE 1=1";
 
                 // Filtrar solo si hay un estado de búsqueda
@@ -110,7 +144,8 @@ function obtener_nombre_mes($mes) {
                     $todas_reservas .= " AND MONTH(fecha) = '" . mysqli_real_escape_string($conectar, $mes_busqueda) . "'";
                 }
 
-                $todas_reservas .= " ORDER BY id ASC";
+                // Limitar los resultados y aplicar paginación
+                $todas_reservas .= " ORDER BY id ASC LIMIT $start, $limit";
 
                 $resultado = mysqli_query($conectar, $todas_reservas);
 
@@ -124,11 +159,11 @@ function obtener_nombre_mes($mes) {
                         // Determina el icono del estado
                         $icono_estado = '';
                         if ($fila['estado'] == 'realizada') {
-                            $icono_estado = '<i class="fas fa-check-circle realizada" style="color: green;"></i>';
+                            $icono_estado = '<i class="fas fa-check-circle icon realizada" style="color: green;" title="Realizada"></i>';
                         } elseif ($fila['estado'] == 'cancelada') {
-                            $icono_estado = '<i class="fas fa-times-circle cancelada" style="color: red;"></i>';
+                            $icono_estado = '<i class="fas fa-times-circle icon cancelada" style="color: red;" title="Cancelada"></i>';
                         } else {
-                            $icono_estado = '<i class="fas fa-clock pendiente" style="color: gray;"></i>'; // Estado pendiente
+                            $icono_estado = '<i class="fas fa-clock icon pendiente" style="color: gray;" title="Pendiente"></i>'; // Estado pendiente
                         }
                 ?>
                         <tr>
@@ -138,47 +173,60 @@ function obtener_nombre_mes($mes) {
                             <td><?php echo $fila["telefono"]; ?></td>
                             <td><?php echo $fecha; ?></td>
                             <td style="text-align: center; width: 10px;"><?php echo $icono_estado; ?></td>
-                            <td style="width: 50px;"><a href="ver_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-eye"></i></a></td>
-                            <td style="width: 50px;"><a href="editar_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-pen-to-square"></i></a></td>
                             <td style="width: 50px;">
-                                <a href="#" onClick="validar('eliminar_evento.php?id=<?php echo $fila['id']; ?>')"><i class="basurita fa-solid fa-trash-can"></i></a>
+                                <a href="ver_reserva.php?id=<?php echo $fila['id']; ?>"><i class="fa-solid fa-eye" style="color: var(--Texto);"></i></a>
+                            </td>
+                            <td style="width: 50px;">
+                                <a href="editar_evento.php?id=<?php echo $fila['id']; ?>"><i class="fa-solid fa-edit" style="color: var(--Texto);"></i></a>
+                            </td>
+                            <td style="width: 50px;">
+                                <a href="eliminar_evento.php?id=<?php echo $fila['id']; ?>"><i class="basurita fa-solid fa-trash-can" style="color: var(--Texto);"></i></a>
                             </td>
                         </tr>
                 <?php
                     }
                 } else {
-                    // Mostrar mensaje si no se encuentran resultados
-                    echo "<tr><td colspan='9' style='text-align: center; padding: 20px;'>No se encontraron reservas para el estado o mes especificado.</td></tr>";
+                    echo "<tr><td colspan='9'>No hay registros.</td></tr>";
                 }
                 ?>
             </table>
+
+            <div class="paginacion">
+                <?php
+                // Mostrar la paginación
+                $total_reservas = "SELECT COUNT(*) FROM reservas_eventos WHERE 1=1";
+
+                if (!empty($estado_busqueda)) {
+                    $total_reservas .= " AND estado = '" . mysqli_real_escape_string($conectar, $estado_busqueda) . "'";
+                }
+
+                if (!empty($mes_busqueda)) {
+                    $total_reservas .= " AND MONTH(fecha) = '" . mysqli_real_escape_string($conectar, $mes_busqueda) . "'";
+                }
+
+                $resultado_total = mysqli_query($conectar, $total_reservas);
+                $total_filas = mysqli_fetch_array($resultado_total)[0];
+                $total_paginas = ceil($total_filas / $limit);
+
+                // Paginación: Enlaces a páginas anteriores y siguientes
+                if ($page > 1) {
+                    echo "<a href='?page=" . ($page - 1) . "&estado_busqueda=$estado_busqueda&mes_busqueda=$mes_busqueda'>Anterior</a>";
+                }
+
+                for ($i = 1; $i <= $total_paginas; $i++) {
+                    if ($i == $page) {
+                        echo "<span>$i</span>";
+                    } else {
+                        echo "<a href='?page=$i&estado_busqueda=$estado_busqueda&mes_busqueda=$mes_busqueda'>$i</a>";
+                    }
+                }
+
+                if ($page < $total_paginas) {
+                    echo "<a href='?page=" . ($page + 1) . "&estado_busqueda=$estado_busqueda&mes_busqueda=$mes_busqueda'>Siguiente</a>";
+                }
+                ?>
+            </div>
         </div>
-
     </div>
-    <script>
-        function buscarEstado(estado) {
-            // Crear un formulario oculto para enviar el estado
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.style.display = 'none';
-
-            // Crear un campo oculto para el estado
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'estado_busqueda';
-            input.value = estado;
-
-            form.appendChild(input);
-            document.body.appendChild(form);
-            form.submit();
-        }
-
-        function validar(url) {
-            var eliminar = confirm("¿Deseas eliminar esta reserva?");
-            if (eliminar == true) {
-                window.location = url;
-            }
-        }
-    </script>
 </body>
 </html>
