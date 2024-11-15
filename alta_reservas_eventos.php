@@ -46,7 +46,7 @@
 
                 <div>
                     <select name="menu_banquete" id="menu_banquete" required>
-                        <option value="" disabled>Seleccione su Menú</option>
+                        <option value="" disabled selected>Seleccione Menú del Banquete de su preferencia</option>
                         <?php
                         // Conexión a la base de datos
                         $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
@@ -85,31 +85,17 @@
     </div>
 
     <script>
-        // Obtener los parámetros de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-
-        // Asignar los valores de los parámetros a los campos del formulario si existen en la URL
-        if (urlParams.has('evento')) {
-            document.getElementById('evento').value = urlParams.get('evento');
-        }
-        if (urlParams.has('menu_banquete')) {
-            document.getElementById('menu_banquete').value = urlParams.get('menu_banquete');
-        }
-        if (urlParams.has('invitados')) {
-            document.getElementById('invitados').value = urlParams.get('invitados');
-        }
-
-        // Función para llenar el campo de invitados
-        function validarCantidadInvitados(input) {
-            const valor = parseInt(input.value);
-            if (valor > 1000) {
-                input.value = 1000; // Limita el valor a 1000
-            }
-        }
-
-        // Configuración de la fecha mínima
         const fechaEventoInput = document.getElementById('fecha');
-        const fechaActual = new Date().toISOString().split('T')[0];
+
+        function obtenerFechaActual() {
+            const hoy = new Date();
+            const dia = ('0' + hoy.getDate()).slice(-2);
+            const mes = ('0' + (hoy.getMonth() + 1)).slice(-2);
+            const anio = hoy.getFullYear();
+            return `${anio}-${mes}-${dia}`;
+        }
+
+        const fechaActual = obtenerFechaActual();
         fechaEventoInput.min = fechaActual;
     </script>
 

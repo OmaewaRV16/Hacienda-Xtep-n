@@ -84,59 +84,23 @@
         </div>
     </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <!-- Imagen de la promoción -->
+            <img id="modal-image" src="" alt="Imagen promocional" style="display: none; width: 70%;">
 
-        <!-- Imagen de la promoción -->
-        <img id="modal-image" src="" alt="Imagen promocional" style="display: none; width: 100%;">
+            <!-- Campos ocultos para enviar los datos al formulario de reserva -->
+            <input type="hidden" id="evento">
+            <input type="hidden" id="menu_banquete">
+            <input type="hidden" id="invitados">
 
-        <!-- Campos ocultos para enviar los datos al formulario de reserva -->
-        <input type="hidden" id="evento">
-        <input type="hidden" id="menu_banquete">
-        <input type="hidden" id="invitados">
-
-        <!-- Botón de reservar con el id modal-reservar-btn -->
-        <button id="modal-reservar-btn" onclick="reservar()">Reservar</button>
+            <!-- Botón de reservar con el id modal-reservar-btn -->
+            <button id="modal-reservar-btn" onclick="reservar()">Reservar</button>
+        </div>
     </div>
-</div>
-
-<script>
-// Función que abre el modal
-function openModal(evento, menuBanquete, invitados, imagen) {
-    // Asignar los valores a los campos ocultos del modal
-    document.getElementById("evento").value = evento;
-    document.getElementById("menu_banquete").value = menuBanquete;
-    document.getElementById("invitados").value = invitados;
-    document.getElementById("modal-image").src = imagen;
-
-    // Mostrar el modal
-    document.getElementById("myModal").style.display = "block";
-}
-
-// Función que cierra el modal
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-}
-
-// Función que llena el formulario de reservas con los datos del modal
-function reservar() {
-    // Obtener los valores de los campos ocultos
-    var evento = document.getElementById("evento").value;
-    var menuBanquete = document.getElementById("menu_banquete").value;
-    var invitados = document.getElementById("invitados").value;
-
-    // Llenar los campos del formulario en alta_reservas_eventos.php
-    document.getElementById("evento").value = evento;
-    document.getElementById("menu_banquete").value = menuBanquete;
-    document.getElementById("invitados").value = invitados;
-
-    // Cerrar el modal
-    closeModal();
-}
-</script>
-
 
     <?php include "pie_pagina.php"; ?>
 

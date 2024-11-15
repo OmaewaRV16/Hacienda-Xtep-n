@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import '../login/styles/colors.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: #f9f9f9;
+}
+
+hr {
+    background-color: var(--Texto);
+    height: 10px;
+    border: none;
+}
+
+.contenedor {
+    margin: 50px auto;
+    width: 50%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#modal h1 {
+    font-family: 'Playfair Display';
+    font-size: 32px;
+    margin: 30px 0;
+}
+
+#modal #close {
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    cursor: pointer;
+    background-color: #333;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close i {
+    color: white;
+}
+
+#modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+article {
+    border: 2px black dotted;
+}
+
+.fotos {
+    display: flex;
+}
+
+.fotos figure {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.fotos figure img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}

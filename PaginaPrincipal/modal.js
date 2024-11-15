@@ -57,11 +57,6 @@ function reservar() {
         return; // Evita redirigir si hay campos vacíos
     }
 
-    // Usamos el localStorage para guardar los datos sin pasarlos por la URL
-    localStorage.setItem('evento', evento);
-    localStorage.setItem('menu_banquete', menuBanquete);
-    localStorage.setItem('invitados', invitados);
-
-    // Redirigir al formulario de reservas sin parámetros en la URL
-    window.location.href = 'alta_reservas_eventos.php';
+    // Redirigir al formulario con los parámetros en la URL
+    window.location.href = `alta_reservas_eventos.php?evento=${encodeURIComponent(evento)}&menu_banquete=${encodeURIComponent(menuBanquete)}&invitados=${encodeURIComponent(invitados)}`;
 }
