@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-11-2024 a las 16:50:59
+-- Tiempo de generación: 15-11-2024 a las 20:13:47
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -44,7 +44,8 @@ INSERT INTO `banquete_menu` (`id`, `nombre_menu`, `descripcion`, `imagen`) VALUE
 (12, 'Menú prueba 3', 'prueba 3', 'images/2024-11-10-11-32-54-comida3.jpg'),
 (13, 'Menú prueba 4', 'prueba 4', 'images/2024-11-10-11-33-22-comida 4.jpg'),
 (14, 'Menú prueba 5', 'prueba 5', 'images/2024-11-10-11-44-30-comida5.jpg'),
-(15, 'Menú prueba 6', 'prueba 6', 'images/2024-11-10-11-44-57-WhatsApp Image 2024-10-07 at 4.02.50 PM.jpeg');
+(15, 'Menú prueba 6', 'prueba 6', 'images/2024-11-10-11-44-57-WhatsApp Image 2024-10-07 at 4.02.50 PM.jpeg'),
+(16, 'Menú Mariscos', 'Este menú incluye variedad de mariscos', 'images/2024-11-15-07-51-48-WhatsApp Image 2024-10-09 at 1.49.02 PM (6).jpeg');
 
 -- --------------------------------------------------------
 
@@ -54,17 +55,18 @@ INSERT INTO `banquete_menu` (`id`, `nombre_menu`, `descripcion`, `imagen`) VALUE
 
 CREATE TABLE `personal` (
   `id_personal` int NOT NULL,
-  `nombre_personal` varchar(100) DEFAULT NULL,
-  `descripcion` text,
+  `nombre_personal` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `fotos` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `personal`
 --
 
 INSERT INTO `personal` (`id_personal`, `nombre_personal`, `descripcion`, `fotos`) VALUES
-(1, 'Categoría Fotografía', 'Incluye a los mejores fotógrafos y más.', 'img_personal/2024-11-15-01-49-03-Captura de pantalla 2024-11-15 074834.png');
+(1, 'Categoría Fotografía', 'Incluye a los mejores fotógrafos y más.', 'img_personal/2024-11-15-01-49-03-Captura de pantalla 2024-11-15 074834.png'),
+(3, 'Personal Ambiental', 'Incluye musicos clasica', 'img_personal/2024-11-15-07-43-35-WhatsApp Image 2024-10-09 at 1.49.02 PM (5).jpeg');
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,7 @@ CREATE TABLE `reservas_eventos` (
 --
 
 INSERT INTO `reservas_eventos` (`id`, `nombre`, `email`, `telefono`, `evento`, `fecha`, `invitados`, `mensaje`, `fecha_reserva`, `menu_banquete`, `estado`, `personal`) VALUES
-(27, 'Jay', 'Jay.co@gmail.com', '9991293748', 'comunion', '2024-11-17', 546, 'snoqqp', '2024-11-05 18:25:30', 15, 'cancelada', NULL),
+(27, 'Jay', 'Jay.co@gmail.com', '9991293748', 'comunion', '2024-11-17', 546, 'snoqqp', '2024-11-05 18:25:30', 15, 'pendiente', 3),
 (28, 'Joaquin', 'joselo12@gmail.com', '9992456783', 'comunion', '2024-11-22', 78, 'pdwcdqs', '2024-11-05 18:27:32', 10, 'realizada', NULL),
 (30, 'José Omar', 'jose16.jorv@gmail.com', '9993292792', 'corporativo', '2024-11-16', 200, 'kdcnosocpows', '2024-11-05 18:28:48', 10, 'cancelada', NULL),
 (31, 'Kevin Ortiz', 'kevin@ortz.com', '9998653571', 'comunion', '2024-11-26', 666, 'mpspwdpdwp', '2024-11-05 18:29:56', 10, 'cancelada', NULL),
@@ -133,7 +135,9 @@ INSERT INTO `reservas_eventos` (`id`, `nombre`, `email`, `telefono`, `evento`, `
 (46, 'Raul Achach', 'Raul.ds@gmail.com', '9998453677', 'boda', '2024-11-30', 900, 'ohfehifehikfekkefs', '2024-11-13 14:44:20', 10, 'pendiente', NULL),
 (47, 'José Omar', 'jose16.jorv@gmail.com', '9993292792', 'corporativo', '2024-11-13', 122, 'jajjajfeowjo´qndwófew', '2024-11-13 16:07:50', 15, 'realizada', NULL),
 (48, 'Emiliano Gaxiola', 'Gaxi_em@gmail.com', '9999877878', 'pedida', '2024-12-11', 66, 'doncnewnnocew', '2024-11-14 23:15:58', 12, 'pendiente', 1),
-(49, 'Jesus Antonio Mendoza Loeza', 'Chucho@mdz.com', '9991828366', 'quinceanera', '2024-12-07', 1000, 'ndiwqidiwqnocoqewnf', '2024-11-15 16:40:32', 15, 'pendiente', 1);
+(49, 'Jesus Antonio Mendoza Loeza', 'Chucho@mdz.com', '9991828366', 'quinceanera', '2024-12-07', 1000, 'ndiwqidiwqnocoqewnf', '2024-11-15 16:40:32', 15, 'pendiente', 1),
+(50, 'hector cetina', 'hector@hotmail.com', '9989384974', 'boda', '2024-12-24', 645, 'jejeje xd', '2024-11-15 19:46:03', 14, 'pendiente', 3),
+(51, 'José Omar Romero', 'le20080950@merida.tecnm.mx', '9999737383', 'quinceanera', '2024-12-31', 778, '8ry438rf8y34ry84390y348', '2024-11-15 20:06:18', 16, 'pendiente', 1);
 
 -- --------------------------------------------------------
 
@@ -148,26 +152,27 @@ CREATE TABLE `usuarios` (
   `email` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `contrasena` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `acc` int NOT NULL
+  `foto` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_completo`, `roles`, `email`, `contrasena`, `fecha_nacimiento`, `foto`, `acc`) VALUES
-(1, 'José Omar Romero Verde', '', 'jose16.jorv@gmail.com', '$2y$10$ZicN2Rx40vgmZvk9mSRAle3TaPUUI5w5xLcRbSJxoHUrzVTgIF3y.', '2001-04-01', 'fotos/2024-10-10-11-23-48-pic.jpg', 0),
-(5, 'Jorge Mar Martínez Pérez', '', 'mar@gmail.com', '$2y$10$oBC9YW6HNu2CC9W4FzzJFekBYUXi05mN2HWLqN7yy.9bc5qv7wv2a', '2024-10-03', 'fotos/2024-10-09-07-50-01-WhatsApp Image 2024-10-09 at 1.49.02 PM.jpeg', 0),
-(8, 'admin', '', 'admin@admin.com', '$2y$10$FGuN7OFD4V12WDUlacPDRuRXr7ecTR1f12JwjrssoTIYE6HqVVKIu', '2024-10-09', 'fotos/2024-10-09-07-51-51-WhatsApp Image 2024-10-09 at 1.49.02 PM (5).jpeg', 0),
-(9, 'Kevin Ortiz', '', 'gaby_st@gmail.com', '$2y$10$i.BcUB7iqPjTnLeu0HZuReNXfBfP/XeSXGIysRc.4DDYreoC8ExkK', '2024-10-09', 'fotos/2024-10-09-08-31-34-WhatsApp Image 2024-10-09 at 1.49.02 PM (4).jpeg', 0),
-(10, 'Jesus Antonio Mendoza Loeza', '', 'Chucho@mdz.com', '$2y$10$U3fF/gM5U677J/FBx9rkF./7aIJGn5Q.X8J0hFaP1gSXaxSr0NQ5S', '2024-10-09', 'fotos/2024-10-09-07-40-23-WhatsApp Image 2024-10-07 at 4.02.50 PM.jpeg', 0),
-(11, 'Gener Alejandro Vallejos', '', 'Gner@vall.com', '$2y$10$Djfrk12mnv0b0YTX2eahueVgFvDwYNwkcXMw2OdtEfgg94YgcgtRS', '2024-10-09', 'fotos/2024-10-09-07-32-11-WhatsApp Image 2024-10-07 at 3.37.36 PM.jpeg', 0),
-(12, 'Edrick Leon', 'administrador', 'ledrickon22@gmail.com', '$2y$10$lfP3P8Ph9ookdUsq82O8BeKCBJ6IX/gO4ZGa/y03IQizqFHfgtyai', '2002-12-22', 'fotos/2024-10-22-04-06-13-WhatsApp Image 2024-10-10 at 20.22.42.jpeg', 0),
-(13, 'Luis Peñe', 'cliente', 'luispeine@gmial.com', '$2y$10$C/hzdZZzjAaeoJKOF58nfOZS43TpOfGSj3lRM1DY7zcG.0Na3DzmG', '2010-10-10', 'fotos/2024-10-11-02-48-59-WhatsApp Image 2024-10-10 at 22.08.54.jpeg', 0),
-(16, 'Emilio Puigtraconis', 'administrador', 'sincorreo@hotmail.com', '$2y$10$vb33MrApR2vmBCjIHYj.yu7BFiBv1xXlMIxFoRcKNBpdVHVBI9BAy', '2006-10-20', 'fotos/2024-10-11-05-03-13-WhatsApp Image 2024-10-10 at 22.08.54.jpeg', 0),
-(17, 'Franki segura', 'administrador', 'franki@gmail.com', '$2y$10$L67FATG8BdbV7xKzMsIqvuZv/3Us2PSd3rwmi4hmWGOw59Y7KD30.', '2005-12-10', 'fotos/2024-10-11-05-06-34-WhatsApp Image 2024-10-10 at 22.08.54.jpeg', 0),
-(18, 'Hernia Duran', 'administrador', 'sincorreo1@hotmail.com', '$2y$10$QFRv2KziwKcAcSZ0VTIJ/O10Y00IiRLY/zrttq6NFluxr8BNzEocq', '2002-06-13', 'fotos/2024-10-22-05-56-59-WhatsApp Image 2024-10-17 at 14.23.24.jpeg', 0);
+INSERT INTO `usuarios` (`id_usuario`, `nombre_completo`, `roles`, `email`, `contrasena`, `fecha_nacimiento`, `foto`) VALUES
+(1, 'José Omar Romero Verde', '', 'jose16.jorv@gmail.com', '$2y$10$ZicN2Rx40vgmZvk9mSRAle3TaPUUI5w5xLcRbSJxoHUrzVTgIF3y.', '2001-04-01', 'fotos/2024-10-10-11-23-48-pic.jpg'),
+(5, 'Jorge Mar Martínez Pérez', '', 'mar@gmail.com', '$2y$10$oBC9YW6HNu2CC9W4FzzJFekBYUXi05mN2HWLqN7yy.9bc5qv7wv2a', '2024-10-03', 'fotos/2024-10-09-07-50-01-WhatsApp Image 2024-10-09 at 1.49.02 PM.jpeg'),
+(8, 'admin', '', 'admin@admin.com', '$2y$10$FGuN7OFD4V12WDUlacPDRuRXr7ecTR1f12JwjrssoTIYE6HqVVKIu', '2024-10-09', 'fotos/2024-10-09-07-51-51-WhatsApp Image 2024-10-09 at 1.49.02 PM (5).jpeg'),
+(9, 'Kevin Ortiz', '', 'gaby_st@gmail.com', '$2y$10$i.BcUB7iqPjTnLeu0HZuReNXfBfP/XeSXGIysRc.4DDYreoC8ExkK', '2024-10-09', 'fotos/2024-10-09-08-31-34-WhatsApp Image 2024-10-09 at 1.49.02 PM (4).jpeg'),
+(10, 'Jesus Antonio Mendoza Loeza', '', 'Chucho@mdz.com', '$2y$10$U3fF/gM5U677J/FBx9rkF./7aIJGn5Q.X8J0hFaP1gSXaxSr0NQ5S', '2024-10-09', 'fotos/2024-10-09-07-40-23-WhatsApp Image 2024-10-07 at 4.02.50 PM.jpeg'),
+(11, 'Gener Alejandro Vallejos', '', 'Gner@vall.com', '$2y$10$Djfrk12mnv0b0YTX2eahueVgFvDwYNwkcXMw2OdtEfgg94YgcgtRS', '2024-10-09', 'fotos/2024-10-09-07-32-11-WhatsApp Image 2024-10-07 at 3.37.36 PM.jpeg'),
+(12, 'Edrick Leon', 'administrador', 'ledrickon22@gmail.com', '$2y$10$lfP3P8Ph9ookdUsq82O8BeKCBJ6IX/gO4ZGa/y03IQizqFHfgtyai', '2002-12-22', 'fotos/2024-10-22-04-06-13-WhatsApp Image 2024-10-10 at 20.22.42.jpeg'),
+(13, 'Luis Peñe', 'cliente', 'luispeine@gmial.com', '$2y$10$C/hzdZZzjAaeoJKOF58nfOZS43TpOfGSj3lRM1DY7zcG.0Na3DzmG', '2010-10-10', 'fotos/2024-10-11-02-48-59-WhatsApp Image 2024-10-10 at 22.08.54.jpeg'),
+(16, 'Emilio Puigtraconis', 'administrador', 'sincorreo@hotmail.com', '$2y$10$vb33MrApR2vmBCjIHYj.yu7BFiBv1xXlMIxFoRcKNBpdVHVBI9BAy', '2006-10-20', 'fotos/2024-10-11-05-03-13-WhatsApp Image 2024-10-10 at 22.08.54.jpeg'),
+(17, 'Franki segura', 'administrador', 'franki@gmail.com', '$2y$10$L67FATG8BdbV7xKzMsIqvuZv/3Us2PSd3rwmi4hmWGOw59Y7KD30.', '2005-12-10', 'fotos/2024-10-11-05-06-34-WhatsApp Image 2024-10-10 at 22.08.54.jpeg'),
+(18, 'Hernia Duran', 'administrador', 'sincorreo1@hotmail.com', '$2y$10$QFRv2KziwKcAcSZ0VTIJ/O10Y00IiRLY/zrttq6NFluxr8BNzEocq', '2002-06-13', 'fotos/2024-10-22-05-56-59-WhatsApp Image 2024-10-17 at 14.23.24.jpeg'),
+(19, 'Hector Cetina', 'administrador', 'hector@hotmail.com', '$2y$10$TVhUpjrMAMQ0iHZqbIMV2.BXUat9y6GjwrNJWLcX.sP6y49pokqCC', '2024-11-15', 'fotos/2024-11-15-08-12-32-Captura de pantalla_2-10-2024_161140_www.bing.com.jpeg'),
+(20, 'Kevin Ortiz', 'administrador', 'kev.lb@gmail.com', '$2y$10$YxYG.mdfHAl6.OjhpFFJYOGqQwUfc/t/iE.cJSblJ5fbfAnXX1RDe', '2024-11-15', 'fotos/2024-11-15-08-13-27-WhatsApp Image 2024-10-09 at 1.49.02 PM (4).jpeg');
 
 --
 -- Índices para tablas volcadas
@@ -214,13 +219,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `banquete_menu`
 --
 ALTER TABLE `banquete_menu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id_personal` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_personal` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
@@ -232,13 +237,13 @@ ALTER TABLE `promociones`
 -- AUTO_INCREMENT de la tabla `reservas_eventos`
 --
 ALTER TABLE `reservas_eventos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
