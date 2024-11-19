@@ -25,6 +25,7 @@
                 <br>
             </div>
             <button class="buttonsbmt">Enviar</button>
+            <!-- Esta es la nueva area en la cual vamos a trabajar que es el alta de personal -->
         </form>
     </div>
 </body>
