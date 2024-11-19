@@ -80,7 +80,7 @@
 
                 <div>
                 <select name="personal" id="personal" required>
-                        <option value="" disabled selected>Seleccione su Menú</option>
+                        <option value="" disabled selected>Seleccione su Personal Adicional</option>
                         <?php
                         // Conexión a la base de datos
                         $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
