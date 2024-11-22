@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/stylebanqts.css">
     <title>Alta Menú Banquetes</title>
+    <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <?php include "menu.php";?>
@@ -28,6 +29,10 @@
            <div>
                <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Menú" required><?php echo $fila["descripcion"];?></textarea>
            </div>
+           <div>
+                <!-- Este es el nuevo textarea para CKEditor -->
+                <textarea  class="inputext" name="descripcion_larga" id="descripcion_larga" placeholder="Inserta las Especificaciones de todo el Menú" required><?php echo $fila['descripcion_larga']; ?></textarea>
+            </div>
            <br>
            <div>
                <h5>Inserta La Foto del Menú (opcional): </h5>
@@ -40,5 +45,8 @@
            <button class="buttonsbmt">Enviar</button>
         </form>
     </div>
+    <script>
+            CKEDITOR.replace('descripcion_larga');
+    </script>
 </body>
 </html>

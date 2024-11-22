@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="PaginaPrincipal/stylebanq.css">
     <link rel="stylesheet" href="PaginaPrincipal/animate.css">
     <script src="PaginaPrincipal/wow.min.js"></script>
+    <!-- Incluir Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Reservas</title>
 </head>
 <body>
@@ -39,6 +41,12 @@
                     echo '<div class="menu-content">';
                     echo '<h2>' . htmlspecialchars($fila['nombre_menu']) . '</h2>';
                     echo '<h3>' . htmlspecialchars($fila['descripcion']) . '</h3>';
+                    echo '<div>';
+                    // Botón solo con ícono Font Awesome (fa-info-circle)
+                    echo '<a href="ver_menu.php?id=' . $fila['id'] . '" class="boton-ver-mas">';
+                    echo '<i class="fa-solid fa-info-circle"></i>'; // Solo ícono
+                    echo '</a>';
+                    echo '</div>';
                     echo '</div>';
                     echo '</div>';
                 }

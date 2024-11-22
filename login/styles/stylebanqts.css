@@ -18,7 +18,7 @@ body {
 .information {
     margin: 5% auto;
     padding: 20px;
-    width: 500px;
+    width: 700px;
     background-color: var(--Blanco);
     border-radius: 10px;
     text-align: center;
@@ -152,6 +152,7 @@ hr {
 .file-container {
     display: flex; /* Usamos flexbox para alinear en línea */
     flex-direction: column; /* Alinea verticalmente */
+    align-items: center;
 }
 .file-container input[type="file"] {
     margin-bottom: 5px; /* Espaciado entre el input y el texto */

@@ -46,10 +46,15 @@ hr {
     overflow: hidden; /* Esconder contenido que sobresalga */
     transition: transform 0.5s, box-shadow 0.5s; /* Transición para la tarjeta */
     box-shadow: 0px 0px 15px #868686a6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .menu-content {
-    text-align: justify;
+    text-align: center; /* Asegura que el texto esté centrado */
     position: absolute; /* Posicionar el contenido sobre la imagen */
     top: 0; /* Alinear al contenido en la parte superior */
     left: 0; /* Alinear a la izquierda */
@@ -59,6 +64,10 @@ hr {
     background: rgba(255, 255, 255, 0.674); /* Fondo blanco semi-transparente */
     opacity: 0; /* Inicialmente oculto */
     transition: opacity 0.30s ease-in-out; /* Transición suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-card:hover .menu-content {
@@ -108,3 +117,30 @@ hr {
         width: 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
     }
 }
+
+.boton-ver-mas {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: var(--Texto);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    text-decoration: none; /* Eliminar el subrayado del enlace */
+    font-size: 24px; /* Aumento del tamaño del ícono */
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px; /* Separación entre ícono y el contenido */
+}
+
+.boton-ver-mas:hover {
+    background-color: var(--Secundario);
+    color: var(--Texto);
+}
+
+.boton-ver-mas i {
+    margin: 0; /* Eliminar el espacio adicional */
+}
+
