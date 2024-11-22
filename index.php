@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="PaginaPrincipal/pagprinc.css">
     <link rel="stylesheet" href="PaginaPrincipal/animate.css">
+    <link rel="stylesheet" href="PaginaPrincipal/fancybox.css">
+    <script src="PaginaPrincipal/fancybox.js"></script>
     <script src="PaginaPrincipal/wow.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/b971a45ca4.js" crossorigin="anonymous"></script>
     <title>Hacienda Xtepén</title>
 </head>
@@ -26,8 +29,18 @@
             <img src="login/imagenes/FotoSec2.jpg" alt="">
         </figure>
         <div>
-            <h1>Ofrecemos servicios para todo tipo de eventos: bodas, celebraciones privadas y corporativas. Desde catering y decoración hasta iluminación, nuestro equipo se encargará de cada detalle para que tu evento sea inolvidable.</h1>
+            <p>Ofrecemos servicios para todo tipo de eventos: bodas, celebraciones privadas y corporativas. Desde catering y decoración hasta iluminación, nuestro equipo se encargará de cada detalle para que tu evento sea inolvidable.</p>
             <a class="serv wow animate__animated animate__bounceInRight animate__slow" href="#">Saber mas</a>
+        </div>
+    </section>
+    <section class="galemov ancho">
+        <div class="galemovcontainer">
+        <a href="login/imagenes/foto2-2.jpg" data-fancybox="gallery" data-caption="Caption #1">
+            <img src="login/imagenes/foto2-2.jpg" />
+        </a>
+        <a href="login/imagenes/foto1-1.jpg" data-fancybox="gallery" data-caption="Caption #2">
+            <img src="login/imagenes/foto1-1.jpg" />
+        </a>
         </div>
     </section>
     <section class="gale ancho">
@@ -115,6 +128,10 @@
     </footer>
     <script>
         new WOW().init();
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+        });
+
     </script>
 </body>
 

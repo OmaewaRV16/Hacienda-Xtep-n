@@ -9,14 +9,21 @@
 </head>
 <body>
     <header>
-        <img src="login/imagenes/xtepen-logo-750.gif" alt="">
+        <div class="divlogmov">
+            <img src="login/imagenes/xtepen-logo-750.gif" alt="">
+            <a class="btnmov" href="login/index.php">
+                <div class="contlogmov">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </a>
+        </div>
         <nav>
             <a href="index.php">Quienes Somos</a>
             <a href="alta_reservas_eventos.php">Reservar</a>
             <a href="banquetes_menu.php">Banquetes</a>
             <a href="promociones.php">Promociones</a>
         </nav>
-        <a class="login" href="login/index.php">Inicia Sesion</a>
+        <a class="login btndesk" href="login/index.php">Inicia Sesion</a>
     </header>
 </body>
 </html>
