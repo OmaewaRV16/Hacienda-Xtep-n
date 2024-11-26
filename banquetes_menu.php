@@ -44,7 +44,7 @@
                     echo '<div>';
                     // Botón solo con ícono Font Awesome (fa-info-circle)
                     echo '<a href="ver_menu.php?id=' . $fila['id'] . '" class="boton-ver-mas">';
-                    echo '<i class="fa-solid fa-info-circle"></i>'; // Solo ícono
+                    echo '<i class="fa-solid fa-info-circle" title="Ver Menú Completo"></i>'; // Solo ícono
                     echo '</a>';
                     echo '</div>';
                     echo '</div>';

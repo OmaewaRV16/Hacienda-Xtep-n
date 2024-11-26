@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="contenedor_arriba">
-        <a href="banquetes_menu.php"><button><i class="fa-solid fa-backward"></i></button></a>
+        <a href="banquetes_menu.php"><button title="Regresar"><i class="fa-solid fa-reply"></i></button></a>
         <img src="login/imagenes/xtepen-logo-750.gif" alt="">
     </div>
     <hr>
