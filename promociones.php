@@ -99,10 +99,10 @@
 
             <!-- Detalles de la promoción -->
             <h2 id="modal-nombre"></h2>
+            <p id="modal-descripcion"></p>
             <p id="modal-menu"></p>
             <p id="modal-tipo"></p>
             <p id="modal-invitados"></p>
-            <p id="modal-descripcion"></p>
             <p id="modal-personal"></p>
 
             <!-- Botón de reservar -->
@@ -116,9 +116,9 @@
         // Función para abrir el modal
         function openModal(id, nombre, menu, tipo, invitados, descripcion, personal) {
             document.getElementById("modal-nombre").textContent = nombre;
-            document.getElementById("modal-menu").textContent = "Menú: " + menu;
-            document.getElementById("modal-tipo").textContent = "Evento: " + tipo;
-            document.getElementById("modal-invitados").textContent = "Invitados: " + invitados;
+            document.getElementById("modal-menu").textContent = "Banquete: " + menu;
+            document.getElementById("modal-tipo").textContent = "Tipo de Evento: " + tipo;
+            document.getElementById("modal-invitados").textContent = "Cantidad de Invitados: " + invitados;
             document.getElementById("modal-descripcion").textContent = "Descripción: " + descripcion;
             document.getElementById("modal-personal").textContent = "Personal Adicional: " + personal;
 

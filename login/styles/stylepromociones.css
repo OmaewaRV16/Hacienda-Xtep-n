@@ -37,6 +37,15 @@ body {
     position: relative;
 }
 
+select {
+    border: 2px var(--Texto) solid;
+    background-color: var(--Blanco);
+    padding: 10px;
+    width: 75%;
+    border-radius: 50px;
+    margin: 8px 0;
+}
+
 .form h1 {
     font-family: "Lora";
     height: 60px;
@@ -110,6 +119,10 @@ textarea {
     resize: none;
 }
 
+.inputextdesc {
+    border-radius: 10px;
+}
+
 textarea:hover,
 textarea:focus {
     box-shadow: 0px 0px 40px #7700002d;
@@ -119,7 +132,6 @@ textarea:focus {
 label {
     font-size: 14px;
     color: var(--Texto);
-    padding-left: 50px;
     display: block;
     margin-top: 15px;
 }

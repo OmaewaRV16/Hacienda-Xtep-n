@@ -54,12 +54,10 @@
         <form class="form" action="guardar_promocion_editar.php?id=<?php echo $fila['id_promocion']; ?>" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario()">
                 <h1>Editar: <?php echo htmlspecialchars($fila["nombre_promocion"]); ?></h1>
                 <label for="">Todos los campos son obligatorios</label>
-
                 <!-- Nombre de la Promoción -->
                 <div>
                     <input type="text" class="inputext" name="nombre_promocion" id="nombre_promocion" placeholder="Nombre de la Promoción" required value="<?php echo htmlspecialchars($fila["nombre_promocion"]); ?>">
                 </div>
-
                 <!-- Menú de Banquete -->
                 <div>
                     <label for="menu_banquete">Menú del Banquete:</label>
@@ -73,7 +71,6 @@
                         ?>
                     </select>
                 </div>
-
                 <!-- Tipo de Evento -->
                 <div>
                     <label for="tipo_evento">Tipo de Evento:</label>
@@ -87,12 +84,10 @@
                         <option value="pedida" <?php echo ($fila['tipo_evento'] == 'pedida') ? 'selected' : ''; ?>>Pedida de Mano</option>
                     </select>
                 </div>
-
                 <!-- Número de Invitados -->
                 <div>
                     <input type="number" class="inputext" name="invitados" id="invitados" placeholder="Número de Invitados" required value="<?php echo htmlspecialchars($fila['invitados']); ?>">
                 </div>
-
                 <!-- Personal Adicional -->
                 <div>
                     <label for="personal_adicional">Personal Adicional:</label>
@@ -106,19 +101,14 @@
                         ?>
                     </select>
                 </div>
-
                 <!-- Descripción -->
                 <div>
-                    <textarea class="inputext" name="descripcion" id="descripcion" placeholder="Descripción de la promoción"><?php echo htmlspecialchars($fila["descripcion"]); ?></textarea>
+                    <textarea class="inputext inputextdesc" name="descripcion" id="descripcion" placeholder="Descripción de la promoción"><?php echo htmlspecialchars($fila["descripcion"]); ?></textarea>
                 </div>
-
                 <!-- Imagen -->
                 <div>
                     <label for="imagen">Subir Imagen (debe ser .jpg .png .gif):*</label>
                     <input type="file" class="inputext" name="imagen" id="imagen" accept="image/*">
-                    <?php if (!empty($fila["imagen"])): ?>
-                        <p>Imagen actual: <img src="<?php echo htmlspecialchars($fila["imagen"]); ?>" alt="Imagen de promoción" width="100"></p>
-                    <?php endif; ?>
                 </div>
 
                 <!-- Botón -->
