@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 22-11-2024 a las 17:15:12
--- Versión del servidor: 8.0.30
--- Versión de PHP: 8.1.10
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 27-11-2024 a las 04:55:03
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `banquete_menu` (
-  `id` int NOT NULL,
-  `nombre_menu` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `descripcion` text COLLATE utf8mb4_general_ci,
-  `descripcion_larga` text COLLATE utf8mb4_general_ci,
-  `imagen` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `nombre_menu` varchar(100) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
+  `descripcion_larga` text DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -56,9 +56,9 @@ INSERT INTO `banquete_menu` (`id`, `nombre_menu`, `descripcion`, `descripcion_la
 --
 
 CREATE TABLE `personal` (
-  `id_personal` int NOT NULL,
-  `nombre_personal` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `id_personal` int(11) NOT NULL,
+  `nombre_personal` varchar(100) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
   `fotos` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -81,24 +81,23 @@ INSERT INTO `personal` (`id_personal`, `nombre_personal`, `descripcion`, `fotos`
 --
 
 CREATE TABLE `promociones` (
-  `id_promocion` int NOT NULL,
-  `nombre_promocion` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `menu_banquete` int NOT NULL,
-  `descripcion` text COLLATE utf8mb4_general_ci,
-  `imagen` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `id_promocion` int(11) NOT NULL,
+  `nombre_promocion` varchar(100) DEFAULT NULL,
+  `menu_banquete` int(11) NOT NULL,
+  `tipo_evento` varchar(100) NOT NULL,
+  `personal` int(11) NOT NULL,
+  `invitados` int(20) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `promociones`
 --
 
-INSERT INTO `promociones` (`id_promocion`, `nombre_promocion`, `menu_banquete`, `descripcion`, `imagen`) VALUES
-(1, 'Paquete Gustavo', 0, 'Incluye todo lo necesario para hacer de tu boda un día inolvidable, desde el banquete hasta la decoración.', 'fotos/67337401d3ea5_WhatsApp Image 2024-11-05 at 19.35.13.jpeg'),
-(2, 'Paquete Generacion', 0, 'Un paquete diseñado para hacer la celebración de tu quinceañera única, con decoración y comida personalizada.', 'fotos/6733728217646_D_NQ_NP_994953-MLM42527593209_072020-O.webp'),
-(5, 'Paquete Cumpleaños', 0, 'Un paquete versátil para celebrar tu cumpleaños con amigos y familia, incluyendo comida, bebida y decoraciones temáticas.', 'img_prom/2024-11-10-11-40-29-WhatsApp Image 2024-10-09 at 1.49.02 PM (1).jpeg'),
-(6, 'Paquete Pedida de Mano', 0, 'Haz tu pedida de mano especial con un paquete que incluye un ambiente romántico y una cena inolvidable.', 'img_prom/2024-11-10-11-41-05-Captura de pantalla_16-5-2024_03426_web.whatsapp.com.jpeg'),
-(9, 'Paquete Agencia de Viajes', 0, 'sadasd', 'img_prom/2024-11-12-04-29-25-code-snapshot.png'),
-(10, 'Paquete Generacion 2', 0, 'Esta ya esta no es una prueba', 'fotos/67338858a9d06_platillo2.jpg');
+INSERT INTO `promociones` (`id_promocion`, `nombre_promocion`, `menu_banquete`, `tipo_evento`, `personal`, `invitados`, `descripcion`, `imagen`) VALUES
+(20, 'Promocion Cumpleaños', 17, 'cumpleanos', 3, 180, 'paquete fiestesita de chill', 'img_prom/2024-11-27-04-17-09-pngwing.com (1) (1).png'),
+(21, 'Paquete Bautizo', 12, 'comunion', 3, 700, 'este sera un paquete para bautizar a omar de leche', 'img_prom/2024-11-27-04-50-12-WhatsApp Image 2024-11-21 at 08.30.17 (1).jpeg');
 
 -- --------------------------------------------------------
 
@@ -107,18 +106,18 @@ INSERT INTO `promociones` (`id_promocion`, `nombre_promocion`, `menu_banquete`, 
 --
 
 CREATE TABLE `reservas_eventos` (
-  `id` int NOT NULL,
-  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `telefono` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `evento` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `evento` varchar(50) NOT NULL,
   `fecha` date NOT NULL,
-  `invitados` int NOT NULL,
-  `mensaje` text COLLATE utf8mb4_general_ci,
-  `fecha_reserva` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `menu_banquete` int DEFAULT NULL,
-  `estado` varchar(10) COLLATE utf8mb4_general_ci DEFAULT 'pendiente',
-  `personal` int DEFAULT NULL
+  `invitados` int(11) NOT NULL,
+  `mensaje` text DEFAULT NULL,
+  `fecha_reserva` timestamp NOT NULL DEFAULT current_timestamp(),
+  `menu_banquete` int(11) DEFAULT NULL,
+  `estado` varchar(10) DEFAULT 'pendiente',
+  `personal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -143,7 +142,14 @@ INSERT INTO `reservas_eventos` (`id`, `nombre`, `email`, `telefono`, `evento`, `
 (48, 'Emiliano Gaxiola', 'Gaxi_em@gmail.com', '9999877878', 'pedida', '2024-12-11', 66, 'doncnewnnocew', '2024-11-14 23:15:58', 12, 'pendiente', 1),
 (49, 'Jesus Antonio Mendoza Loeza', 'Chucho@mdz.com', '9991828366', 'quinceanera', '2024-12-07', 1000, 'ndiwqidiwqnocoqewnf', '2024-11-15 16:40:32', 15, 'pendiente', 1),
 (50, 'hector cetina', 'hector@hotmail.com', '9989384974', 'boda', '2024-12-24', 645, 'jejeje xd', '2024-11-15 19:46:03', 14, 'pendiente', 3),
-(51, 'José Omar Romero', 'le20080950@merida.tecnm.mx', '9999737383', 'quinceanera', '2024-12-31', 778, '8ry438rf8y34ry84390y348', '2024-11-15 20:06:18', 16, 'pendiente', 1);
+(51, 'José Omar Romero', 'le20080950@merida.tecnm.mx', '9999737383', 'quinceanera', '2024-12-31', 778, '8ry438rf8y34ry84390y348', '2024-11-15 20:06:18', 16, 'pendiente', 1),
+(52, 'Edrick Leon Perez', 'jose16.jorv@gmail.com', '9995687291', 'boda', '2025-01-11', 222, 'wweq', '2024-11-27 02:57:53', 16, 'pendiente', 6),
+(54, 'Edrick Leon Perez', 'ledrickon22@gmail.com', '9991939073', 'quinceanera', '2025-06-05', 200, 'sdasdads', '2024-11-27 03:37:43', 10, 'pendiente', 5),
+(55, 'Edrick Leon Perez', 'ledrickon22@gmail.com', '9991939073', 'boda', '2025-07-09', 500, 'fddfgdfg', '2024-11-27 03:38:53', 10, 'pendiente', 6),
+(56, 'Edrick Leon Perez', 'ledrickon22@gmail.com', '9991939073', 'quinceanera', '2025-03-06', 200, 'asdad', '2024-11-27 03:43:11', 10, 'pendiente', 5),
+(57, 'Edrick Leon Perez', 'ledrickon22@gmail.com', '9991939073', 'corporativo', '2025-07-08', 0, 'sadadasd', '2024-11-27 03:43:46', 17, 'pendiente', 1),
+(58, 'Edrick Leon Perez', 'ledrickon22@gmail.com', '9991939073', 'comunion', '2025-08-14', 700, 'ksdkdsalkkldasd', '2024-11-27 03:52:59', 12, 'pendiente', 3),
+(59, 'Edrick Leon Perez', 'ledrickon22@gmail.com', '9991939073', 'quinceanera', '2027-06-17', 0, 'asdsada', '2024-11-27 03:53:50', 16, 'pendiente', 7);
 
 -- --------------------------------------------------------
 
@@ -152,13 +158,13 @@ INSERT INTO `reservas_eventos` (`id`, `nombre`, `email`, `telefono`, `evento`, `
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int NOT NULL,
-  `nombre_completo` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `roles` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contrasena` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nombre_completo` varchar(100) DEFAULT NULL,
+  `roles` varchar(50) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `contrasena` varchar(255) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `foto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -225,31 +231,31 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `banquete_menu`
 --
 ALTER TABLE `banquete_menu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id_personal` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_personal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `promociones`
 --
 ALTER TABLE `promociones`
-  MODIFY `id_promocion` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_promocion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas_eventos`
 --
 ALTER TABLE `reservas_eventos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
