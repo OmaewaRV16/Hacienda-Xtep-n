@@ -41,8 +41,8 @@ $verificar_fecha = mysqli_query($conectar, "SELECT * FROM reservas_eventos WHERE
 if (mysqli_num_rows($verificar_fecha) > 0) {
     echo '
     <script>
-        alert("Ya existe una reserva para esta fecha. Por favor, selecciona nuevamente la promocion e inserte otra fecha.");
-        location.href="promociones.php";
+        alert("Ya existe una reserva para esta fecha. Por favor, selecciona otra.");
+        location.href="alta_reservas_nuevo.php";
     </script>
     ';
     exit;
@@ -54,8 +54,8 @@ $verificar_menu = mysqli_query($conectar, "SELECT id FROM banquete_menu WHERE id
 if (mysqli_num_rows($verificar_menu) == 0) {
     echo '
     <script>
-        alert("El menú seleccionado no existe.");
-        location.href="promociones.php";
+        alert("El menú seleccionado no existe. Por favor, selecciona un menú válido.");
+        location.href="alta_reservas_nuevo.php";
     </script>
     ';
     exit;
@@ -67,8 +67,8 @@ $verificar_personal = mysqli_query($conectar, "SELECT id_personal FROM personal 
 if (mysqli_num_rows($verificar_personal) == 0) {
     echo '
     <script>
-        alert("El personal seleccionado no existe..");
-        location.href="promociones.php";
+        alert("El menú seleccionado no existe. Por favor, selecciona un menú válido.");
+        location.href="alta_reservas_nuevo.php";
     </script>
     ';
     exit;
@@ -91,7 +91,7 @@ if ($query) {
     echo '
         <script>
             alert("NO SE PUDO GUARDAR LA RESERVA");
-            location.href="promociones.php";
+            location.href="alta_reservas_nuevo.php";
         </script>
     ';
 }

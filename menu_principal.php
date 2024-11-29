@@ -19,7 +19,7 @@
         </div>
         <nav>
             <a href="index.php">Quienes Somos</a>
-            <a href="alta_reservas_eventos.php">Reservar</a>
+            <a href="alta_reservas_nuevo.php">Reservar</a>
             <a href="banquetes_menu.php">Banquetes</a>
             <a href="promociones.php">Promociones</a>
         </nav>

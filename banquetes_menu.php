@@ -17,16 +17,7 @@
     <div class="contenedor">
         <div class="contenedor_frm">
             <?php 
-            // Conexión a la base de datos
-            $host = "localhost";
-            $user = "root";
-            $contrasena = "";
-            $bd = "haciendaxtepen";
-            
-            $conectar = mysqli_connect($host, $user, $contrasena, $bd);
-            if (!$conectar) {
-                die("Conexión fallida: " . mysqli_connect_error());
-            }
+            require 'login/conexion.php';
 
             // Consulta para obtener menús
             $vermenu = "SELECT * FROM banquete_menu";

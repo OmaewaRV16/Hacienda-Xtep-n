@@ -15,13 +15,7 @@
             <br>
 
             <?php
-            // Conexión a la base de datos
-            $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
-
-            // Verificar si hubo error en la conexión
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
-            }
+            require 'login/conexion.php';
 
             // Inicializar variables para los datos de la promoción
             $id_promocion = isset($_GET['id']) ? intval($_GET['id']) : null;
@@ -31,7 +25,7 @@
             if ($id_promocion) {
                 // Obtener los datos de la promoción
                 $consulta_promocion = "SELECT tipo_evento, invitados, menu_banquete, personal FROM promociones WHERE id_promocion = $id_promocion";
-                $resultado_promocion = $conexion->query($consulta_promocion);
+                $resultado_promocion = $conectar->query($consulta_promocion);
 
                 if ($resultado_promocion && $resultado_promocion->num_rows > 0) {
                     $promocion = $resultado_promocion->fetch_assoc();
@@ -83,7 +77,7 @@
                         <option value="" disabled <?= empty($menu_id) ? "selected" : "" ?>>Seleccione su Menú</option>
                         <?php
                         $consulta_menus = "SELECT id, nombre_menu FROM banquete_menu";
-                        $resultado_menus = $conexion->query($consulta_menus);
+                        $resultado_menus = $conectar->query($consulta_menus);
 
                         if ($resultado_menus->num_rows > 0) {
                             while ($menu = $resultado_menus->fetch_assoc()) {
@@ -103,7 +97,7 @@
                         <option value="" disabled <?= empty($personal_id) ? "selected" : "" ?>>Seleccione su Personal Adicional</option>
                         <?php
                         $consulta_personal = "SELECT id_personal, nombre_personal FROM personal";
-                        $resultado_personal = $conexion->query($consulta_personal);
+                        $resultado_personal = $conectar->query($consulta_personal);
 
                         if ($resultado_personal->num_rows > 0) {
                             while ($p = $resultado_personal->fetch_assoc()) {

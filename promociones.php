@@ -15,26 +15,12 @@
     <div class="contenedor">
         <div class="contenedor_promociones">
         <?php
-        // Datos de conexión a la base de datos
-        $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $dbname = 'haciendaxtepen';
+        require 'login/conexion.php';
 
-        // Crear la conexión
-        $conn = new mysqli($host, $user, $password, $dbname);
-
-        // Verificar si la conexión fue exitosa
-        if ($conn->connect_error) {
-            die("Conexión fallida: " . $conn->connect_error);
-        }
-
-        // Establecer el conjunto de caracteres para la conexión
-        $conn->set_charset("utf8mb4");
 
         // Consulta para obtener todas las promociones
         $sql = "SELECT id_promocion, nombre_promocion, descripcion, menu_banquete, tipo_evento, invitados, personal FROM promociones";
-        $result = $conn->query($sql);
+        $result = $conectar->query($sql);
 
         if ($result->num_rows > 0) {
             // Mostrar todas las promociones disponibles
@@ -50,7 +36,7 @@
                 // Obtener el nombre del menú a partir de su ID
                 $menu_nombre = "";
                 $consulta_menu = "SELECT nombre_menu FROM banquete_menu WHERE id = $menu_banquete_id";
-                $resultado_menu = $conn->query($consulta_menu);
+                $resultado_menu = $conectar->query($consulta_menu);
                 if ($resultado_menu && $resultado_menu->num_rows > 0) {
                     $menu = $resultado_menu->fetch_assoc();
                     $menu_nombre = $menu['nombre_menu'];
@@ -59,7 +45,7 @@
                 // Obtener el nombre del personal a partir de su ID
                 $personal_nombre = "";
                 $consulta_personal = "SELECT nombre_personal FROM personal WHERE id_personal = $personal_id";
-                $resultado_personal = $conn->query($consulta_personal);
+                $resultado_personal = $conectar->query($consulta_personal);
                 if ($resultado_personal && $resultado_personal->num_rows > 0) {
                     $personal = $resultado_personal->fetch_assoc();
                     $personal_nombre = $personal['nombre_personal'];
@@ -87,7 +73,7 @@
         } else {
             echo "No se encontraron promociones disponibles.";
         }
-        $conn->close();
+        $conectar->close();
         ?>
         </div>
     </div>
