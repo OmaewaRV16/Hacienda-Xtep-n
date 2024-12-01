@@ -13,6 +13,31 @@
         <div class="contenedor_frm">
             <h2>Reservar Evento</h2>
             <br>
+            <?php
+            require 'login/conexion.php';
+
+            // Inicializar variables
+            $tipo_evento = "";
+            $invitados = "";
+            $menu_banquete = "";
+            $personal = "";
+
+            // Si hay un ID de promoción en la URL, cargar sus datos
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+                $id_promocion = intval($_GET['id']);
+                $consulta_promocion = "SELECT tipo_evento, invitados, menu_banquete, personal FROM promociones WHERE id_promocion = $id_promocion";
+                $resultado_promocion = $conectar->query($consulta_promocion);
+
+                if ($resultado_promocion && $resultado_promocion->num_rows > 0) {
+                    $promocion = $resultado_promocion->fetch_assoc();
+                    $tipo_evento = $promocion['tipo_evento'];
+                    $invitados = $promocion['invitados'];
+                    $menu_banquete = $promocion['menu_banquete'];
+                    $personal = $promocion['personal'];
+                }
+            }
+            ?>
+
             <form action="agregar_reserva_evento.php?token=123456" method="post" id="formReserva">
                 <input type="hidden" name="auth_code" value="codigo_secreto">
                 
@@ -24,89 +49,70 @@
                 <div>
                     <input type="tel" name="telefono" id="telefono" placeholder="Ingresa un número celular" maxlength="10" required pattern="[0-9]{10}" inputmode="numeric" title="Ingresa un número de 10 dígitos">
                     
-                    <select id="evento" name="evento" required>
-                        <option value="" disabled selected>Selecciona un tipo de evento</option>
-                        <option value="boda">Boda</option>
-                        <option value="quinceanera">Quinceañera</option>
-                        <option value="corporativo">Evento Corporativo</option>
-                        <option value="comunion">Primera Comunión o Bautizo</option>
-                        <option value="cumpleanos">Cumpleaños</option>
-                        <option value="pedida">Pedida de Mano</option>
+                    <select id="evento" name="evento" <?= $tipo_evento ? "disabled" : "required"; ?>>
+                        <option value="" disabled <?= empty($tipo_evento) ? "selected" : ""; ?>>Selecciona un tipo de evento</option>
+                        <option value="boda" <?= $tipo_evento === "boda" ? "selected" : ""; ?>>Boda</option>
+                        <option value="quinceanera" <?= $tipo_evento === "quinceanera" ? "selected" : ""; ?>>Quinceañera</option>
+                        <option value="corporativo" <?= $tipo_evento === "corporativo" ? "selected" : ""; ?>>Evento Corporativo</option>
+                        <option value="comunion" <?= $tipo_evento === "comunion" ? "selected" : ""; ?>>Primera Comunión o Bautizo</option>
+                        <option value="cumpleanos" <?= $tipo_evento === "cumpleanos" ? "selected" : ""; ?>>Cumpleaños</option>
+                        <option value="pedida" <?= $tipo_evento === "pedida" ? "selected" : ""; ?>>Pedida de Mano</option>
                     </select>
+                    <?php if ($tipo_evento): ?>
+                        <input type="hidden" name="evento" value="<?= htmlspecialchars($tipo_evento); ?>">
+                    <?php endif; ?>
                 </div>
 
                 <div>
                     <span>Seleccione fecha de reserva: </span><input class="dte" type="date" name="fecha" id="fecha" required>
-                    
                     <div class="tooltip">
-                        <input class="inv" type="number" name="invitados" id="invitados" required min="1" max="1000" maxlength="4" placeholder="Cantidad de invitados" oninput="validarCantidadInvitados(this)">
+                        <input class="inv" type="number" id="invitados_visible" value="<?= htmlspecialchars($invitados); ?>" <?= $invitados ? "disabled" : ""; ?> placeholder="Cantidad de invitados">
+                        <input type="hidden" name="invitados" id="invitados" value="<?= htmlspecialchars($invitados); ?>">
                         <span class="tooltiptext">Máximo 1000 invitados</span>
                     </div>
-
                 </div>
-
                 <div>
-                <select name="menu_banquete" id="menu_banquete" required>
-                        <option value="" disabled selected>Seleccione su Menú</option>
+                    <select name="menu_banquete" id="menu_banquete" <?= $menu_banquete ? "disabled" : "required"; ?>>
+                        <option value="" disabled <?= empty($menu_banquete) ? "selected" : ""; ?>>Seleccione su Menú</option>
                         <?php
-                        // Conexión a la base de datos
-                        $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
+                        $consulta_menus = "SELECT id, nombre_menu FROM banquete_menu";
+                        $resultado_menus = $conectar->query($consulta_menus);
 
-                        // Verificar si hubo error en la conexión
-                        if ($conexion->connect_error) {
-                            die("Error de conexión: " . $conexion->connect_error);
-                        }
-
-                        // Consulta para obtener los menús de banquete
-                        $consulta = "SELECT id, nombre_menu FROM banquete_menu";
-                        $resultado = $conexion->query($consulta);
-
-                        // Agregar cada menú de banquete como opción en el select
-                        if ($resultado->num_rows > 0) {
-                            while ($fila = $resultado->fetch_assoc()) {
-                                echo '<option value="'.$fila['id'].'">'.$fila['nombre_menu'].'</option>';
+                        if ($resultado_menus->num_rows > 0) {
+                            while ($menu = $resultado_menus->fetch_assoc()) {
+                                $selected = ($menu['id'] == $menu_banquete) ? "selected" : "";
+                                echo '<option value="' . $menu['id'] . '" ' . $selected . '>' . $menu['nombre_menu'] . '</option>';
                             }
                         } else {
                             echo '<option value="" disabled>No hay menús disponibles</option>';
                         }
-
-                        // Cerrar la conexión
-                        $conexion->close();
                         ?>
                     </select>
-                    <a class="vm" href="reserva_ver_menu.php" onclick="window.open('reserva_ver_menu.php', 'newwindow', 'width=800,height=600'); return false;">Ver Menús</a>
-
+                    <?php if ($menu_banquete): ?>
+                        <input type="hidden" name="menu_banquete" value="<?= htmlspecialchars($menu_banquete); ?>">
+                    <?php endif; ?>
                 </div>
 
                 <div>
-                <select name="personal" id="personal" required>
-                        <option value="" disabled selected>Seleccione su Menú</option>
+                    <select name="personal" id="personal" <?= $personal ? "disabled" : "required"; ?>>
+                        <option value="" disabled <?= empty($personal) ? "selected" : ""; ?>>Seleccione su Personal Adicional</option>
                         <?php
-                        // Conexión a la base de datos
-                        $conexion = new mysqli("localhost", "root", "", "haciendaxtepen");
+                        $consulta_personal = "SELECT id_personal, nombre_personal FROM personal";
+                        $resultado_personal = $conectar->query($consulta_personal);
 
-                        // Verificar si hubo error en la conexión
-                        if ($conexion->connect_error) {
-                            die("Error de conexión: " . $conexion->connect_error);
-                        }
-
-                        // Consulta para obtener los menús de banquete
-                        $consulta = "SELECT id_personal, nombre_personal FROM personal";
-                        $resultado = $conexion->query($consulta);
-
-                        // Agregar cada menú de banquete como opción en el select
-                        if ($resultado->num_rows > 0) {
-                            while ($fila = $resultado->fetch_assoc()) {
-                                echo '<option value="'.$fila['id_personal'].'">'.$fila['nombre_personal'].'</option>';
+                        if ($resultado_personal->num_rows > 0) {
+                            while ($p = $resultado_personal->fetch_assoc()) {
+                                $selected = ($p['id_personal'] == $personal) ? "selected" : "";
+                                echo '<option value="' . $p['id_personal'] . '" ' . $selected . '>' . $p['nombre_personal'] . '</option>';
                             }
                         } else {
-                            echo '<option value="" disabled>No hay menús disponibles</option>';
+                            echo '<option value="" disabled>No hay personal disponible</option>';
                         }
-
-                        // Cerrar la conexión
-                        $conexion->close();
                         ?>
                     </select>
+                    <?php if ($personal): ?>
+                        <input type="hidden" name="personal" value="<?= htmlspecialchars($personal); ?>">
+                    <?php endif; ?>
                 </div>
 
                 <div>
@@ -119,33 +125,17 @@
     </div>
 
     <script>
-    // Obtener los parámetros de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-
-    let invitados = urlParams.get('invitados');
-
-   
-    // Función para llenar el campo de invitados
-    function validarCantidadInvitados(input) {
-        const valor = parseInt(input.value);
-        if (valor > 1000) {
-            input.value = 1000; // Limita el valor a 1000
+        function validarCantidadInvitados(input) {
+            const valor = parseInt(input.value);
+            if (valor > 1000) {
+                input.value = 1000; // Limita el valor a 1000
+            }
         }
-    }
 
-    // Configuración de la fecha mínima
-    const fechaEventoInput = document.getElementById('fecha');
-    const fechaActual = new Date().toISOString().split('T')[0];
-    fechaEventoInput.min = fechaActual;
-
-  
-    const invitadosInput = document.getElementById('invitados');
-
-    // Asignar el valor de invitados
-    invitadosInput.value = invitados;
-
- 
-
+        // Configuración de la fecha mínima
+        const fechaEventoInput = document.getElementById('fecha');
+        const fechaActual = new Date().toISOString().split('T')[0];
+        fechaEventoInput.min = fechaActual;
     </script>
 
     <?php include "pie_pagina.php"; ?>

@@ -62,7 +62,7 @@ echo '
     </head>
     <body>
         <div class="message-box">
-            <img src="http://localhost/Hacienda-Xtep-n/login/imagenes/xtepen-logo-750.gif" alt="Logo Hacienda Xtepén">
+            <img src="imagenes/xtepen-logo-750.gif" alt="Logo Hacienda Xtepén">
             <p>Estamos cerrando tu sesión...</p>
             <div class="loading">Por favor espera, serás redirigido en breve.</div>
         </div>
@@ -70,7 +70,7 @@ echo '
             // Redirige al usuario después de 5 segundos
             setTimeout(function() {
                 location.href = "index.php";
-            }, 5000);  // Redirige después de 5 segundos
+            }, 3000);  // Redirige después de 5 segundos
         </script>
     </body>
     </html>

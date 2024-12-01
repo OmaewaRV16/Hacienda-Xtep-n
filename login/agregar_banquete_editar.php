@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recibimos los datos del formulario
     $nombre_menu = addslashes($_POST['nombre_menu']);
     $descripcion = addslashes($_POST['descripcion']);
+    $descripcion_larga = addslashes($_POST['descripcion_larga']); // Capturamos el contenido enriquecido
 
     // Configuración de la imagen
     $rutaEnServidor = 'images';
@@ -29,17 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipofoto = $_FILES['imagen']['type'];
 
     // Validaciones de la imagen
-<<<<<<< HEAD
     if ($pesofoto > 1000000) {
         echo '
         <script>
         alert("Es demasiado pesada la imagen del menú,  El tamaño máximo permitido es 1 mb.");
-=======
-    if ($pesofoto > 900000) {
-        echo '
-        <script>
-        alert("Es demasiado pesada la imagen del menú. El tamaño máximo permitido es 900 KB.");
->>>>>>> 2e2e65ea59f33af6a5b9b6aae829f9acc4fd3ba7
         window.history.go(-1);
         </script>
         ';
@@ -74,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Actualizamos los datos en la base de datos
     $actualizar = "UPDATE banquete_menu 
-                   SET nombre_menu = '$nombre_menu', descripcion = '$descripcion', imagen = '$rutaDestino' 
+                   SET nombre_menu = '$nombre_menu', descripcion = '$descripcion', descripcion_larga = '$descripcion_larga', imagen = '$rutaDestino' 
                    WHERE id = '$id'";
 
     $query = mysqli_query($conectar, $actualizar);

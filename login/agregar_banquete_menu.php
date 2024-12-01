@@ -4,6 +4,7 @@ require "conexion.php";
 // Recibimos los datos del formulario
 $nombre_menu = addslashes($_POST['nombre_menu']);
 $descripcion = addslashes($_POST['descripcion']);
+$descripcion_larga = addslashes($_POST['descripcion_larga']); // Capturamos el contenido enriquecido
 
 // Configuración de la imagen
 $rutaEnServidor = 'images';
@@ -21,7 +22,7 @@ $tipofoto = $_FILES['imagen']['type'];
 if ($pesofoto > 900000) {
     echo '
     <script>
-    alert("El tamaño de imagen permitido es de 1 mb");
+    alert("El tamaño de imagen permitido es de 1 MB.");
     window.history.go(-1);
     </script>
     ';
@@ -41,8 +42,8 @@ if ($tipofoto == "image/jpeg" || $tipofoto == "image/png" || $tipofoto == "image
 }
 
 // Insertamos los datos en la base de datos
-$insertar = "INSERT INTO banquete_menu (nombre_menu, descripcion, imagen) 
-             VALUES ('$nombre_menu', '$descripcion', '$rutaDestino')";
+$insertar = "INSERT INTO banquete_menu (nombre_menu, descripcion, descripcion_larga, imagen) 
+             VALUES ('$nombre_menu', '$descripcion', '$descripcion_larga', '$rutaDestino')";
 
 $query = mysqli_query($conectar, $insertar);
 

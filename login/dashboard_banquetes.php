@@ -22,7 +22,7 @@
                 while ($fila = mysqli_fetch_assoc($result)) {
                     echo '<div class="menu-card">';
                     echo '<h2>' . htmlspecialchars($fila['nombre_menu']) . '</h2>';
-                    echo '<img src="' . htmlspecialchars($fila['imagen']) . '" alt="Imagen de ' . htmlspecialchars($fila['nombre_menu']) . '">';
+                    echo '<a href="ver_menu.php?id=' . htmlspecialchars($fila['id']) . '"><img src="' . htmlspecialchars($fila['imagen']) . '" alt="Imagen de ' . htmlspecialchars($fila['nombre_menu']) . '" title="Ver todo el menú completo"></a>';
                     echo '<p>' . htmlspecialchars($fila['descripcion']) . '</p>';
                     echo "<br>";
                     echo '<div class="contenedor_btn">';

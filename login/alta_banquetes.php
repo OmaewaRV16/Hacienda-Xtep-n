@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/stylebanqts.css">
     <title>Alta Menú Banquetes</title>
+
+    <!-- Incluir CKEditor desde la ruta local -->
+    <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <?php include "menu.php";?>
@@ -20,6 +23,11 @@
                 <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Menú" required></textarea>
             </div>
             <br>
+            <div>
+                <!-- Este es el nuevo textarea para CKEditor -->
+                <textarea  class="inputext" name="descripcion_larga" id="descripcion_larga" placeholder="Inserta las Especificaciones de todo el Menú" required></textarea>
+            </div>
+            <br>
             <div class="file-container">
                 <h5>Inserta La Foto del Menú:</h5>
                 <input class="inputext" type="file" name="imagen" id="imagen" required>
@@ -29,5 +37,10 @@
             <button class="buttonsbmt">Enviar</button>
         </form>
     </div>
+
+    <!-- Inicializar CKEditor en el nuevo textarea (descripcion_larga) -->
+    <script>
+            CKEDITOR.replace('descripcion_larga');
+    </script>
 </body>
 </html>

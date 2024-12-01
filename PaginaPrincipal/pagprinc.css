@@ -82,7 +82,6 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300px;
   justify-content: center;
   padding: 70px 0;
 }
@@ -94,7 +93,7 @@ nav a:hover {
 
 .historia p {
   padding: 50px 0;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .servicios {
@@ -129,6 +128,10 @@ nav a:hover {
   font-size: 32px;
   padding: 70px 20px;
   text-align: center;
+}
+
+.galemov {
+  display: none;
 }
 
 .galeria {
@@ -374,4 +377,104 @@ figure img {
 
 .icsm a i {
   font-size: 24px;
+}
+
+.btnmov {
+  display: none;
+}
+
+/* Diseño Responsive Menu */
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+    .btndesk {
+      display: none;
+    }
+
+    .contlogmov {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--Texto);
+      border-radius: 50%;
+    }
+
+    .btnmov {
+      display: block;
+      color: var(--Blanco);
+    }
+
+    header {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 20px;
+    }
+
+    .divlogmov {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav {
+      margin: 15px 0;
+    }
+
+    .historia {
+      padding: 45px 70px;
+    }
+
+    .historia h1 {
+      color: var(--Texto);
+      font-size: 32px;
+    }
+
+    .historia p {
+      padding: 30px 0;
+    }
+
+    .servicios {
+      text-align: justify;
+      display: flex;
+      align-items: center;
+      padding: 35px 70px;
+    }
+
+    .servicios figure {
+      width: 600px;
+      border: 15px  solid var(--Texto);
+
+    }
+
+    .servicios img {
+      width: 100%;
+      display: block;
+    }
+
+    .servicios div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 1000px;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .gale {
+      display: none;
+    }
+
+    .galemov {
+      display: block;
+    }
+
+    .galemovcontainer a img {
+      width: 100%;
+    }
 }
