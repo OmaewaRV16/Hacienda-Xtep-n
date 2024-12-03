@@ -44,7 +44,17 @@ nav a:hover {
   color: var(--Principal);
 }
 
-.login, .serv {
+.login{
+  background-color: var(--Texto);
+  color: var(--Blanco);
+  border-radius: 50px;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  /* display: none; Solo para ocultar el boton de la pagina de inicio */
+}
+
+.serv {
   background-color: var(--Texto);
   color: var(--Blanco);
   border-radius: 50px;
