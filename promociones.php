@@ -107,6 +107,7 @@
             document.getElementById("modal-invitados").textContent = "Cantidad de Invitados: " + invitados;
             document.getElementById("modal-descripcion").textContent = "Descripción: " + descripcion;
             document.getElementById("modal-personal").textContent = "Personal Adicional: " + personal;
+            
 
             // Configurar el enlace del botón de reserva
             const reservarBtn = document.getElementById("modal-reservar-btn");

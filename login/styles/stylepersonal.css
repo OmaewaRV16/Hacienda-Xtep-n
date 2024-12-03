@@ -228,3 +228,41 @@ hr {
 .ver-foto img:hover {
     transform: scale(1.05);
 }
+
+table {
+    font-size: 12px;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    border-collapse: collapse;
+    border: 2px var(--Texto) solid;
+}
+
+table th {
+    margin: 5px;
+    width: 5%;
+    height: 30px;
+    background-color: var(--Texto);
+    color: var(--Blanco);
+}
+
+.tabla {
+    margin: 70px;
+}
+
+.tabla td {
+    padding: 0 5px;
+    width: 10%;
+    height: 40px;
+    font-size: 14px;
+    background-color: var(--Blanco);
+    border-left: 1px var(--Texto) solid;
+}
+
+.information h2 {
+    margin: 0;
+}
+
+hr {
+    margin: 10px 0;
+}

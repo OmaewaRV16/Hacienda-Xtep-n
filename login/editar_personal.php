@@ -10,7 +10,7 @@
     <?php include "menu.php";?>
 
     <div class="information">
-        <form action="agregar_personal.editar.php" method="post" enctype="multipart/form-data">
+        <form action="agregar_personal.editar.php" method="post">
         <?php
         require "conexion.php";
         $id_personal = $_GET['id'];
@@ -26,17 +26,10 @@
             <div>
                 <textarea style="resize: none;" class="inputext" name="descripcion" id="descripcion" placeholder="Inserta la Descripcion del Personal" required><?php echo $fila['descripcion']?></textarea>
             </div>
-            <div class="file-container">
-                <h5>Inserta Imagen de Muestra (opcional):</h5>
-                <input class="inputext" type="file" name="fotos" id="fotos">
-                <label class="file-info">(El máximo de peso de la imagen debe ser de 1MB, <br> solo acepta formatos en JPEG, PNG, GIF y JPG).</label>
-                <br>
-            </div>
-            <input type="hidden" name="imagen_actual" value="<?php echo $fila['fotos']; ?>">
             <input type="hidden" name="id_personal" value="<?php echo $fila['id_personal']; ?>">
             <button class="buttonsbmt">Enviar</button>
         </form>
-        <a href="dashboard_personal.php">Regresar</a>
+        
     </div>
 </body>
 </html>
