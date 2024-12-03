@@ -93,7 +93,7 @@
             <p id="modal-personal"></p>
 
             <!-- Mostrar la imagen en el modal -->
-            <img id="modal-imagen" src="" alt="Imagen de la promoción" style="width: 100%; max-width: 400px; display: none;"/>
+            <img id="modal-imagen" src="" alt="Imagen de la promoción"/>
 
             <!-- Botón de reservar -->
             <a id="modal-reservar-btn" class="button" href="#">Reservar</a>

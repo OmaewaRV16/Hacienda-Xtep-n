@@ -130,10 +130,11 @@ hr {
 }
 
 /* Imagen dentro del modal */
-#modal-image {
+#modal-imagen {
     max-width: 100%; /* La imagen no se saldrá del modal */
-    height: auto; /* Mantiene las proporciones */
-    margin: 20px 0; /* Añade espacio alrededor de la imagen */
+    height: 200px; /* Mantiene las proporciones */
+    margin: 20px auto; /* Añade espacio alrededor de la imagen */
+    border-radius: 10PX;
 }
 
 /* Ajuste del título y descripción */
