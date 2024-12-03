@@ -17,9 +17,8 @@
         <?php
         require 'login/conexion.php';
 
-
         // Consulta para obtener todas las promociones
-        $sql = "SELECT id_promocion, nombre_promocion, descripcion, menu_banquete, tipo_evento, invitados, personal FROM promociones";
+        $sql = "SELECT id_promocion, nombre_promocion, descripcion, menu_banquete, tipo_evento, invitados, personal, imagen FROM promociones";
         $result = $conectar->query($sql);
 
         if ($result->num_rows > 0) {
@@ -32,6 +31,7 @@
                 $tipo_evento = $row['tipo_evento'];
                 $invitados = $row['invitados'];
                 $personal_id = $row['personal'];
+                $imagen = $row['imagen'];
 
                 // Obtener el nombre del menú a partir de su ID
                 $menu_nombre = "";
@@ -64,7 +64,8 @@
                                           '<?php echo htmlspecialchars($tipo_evento); ?>', 
                                           <?php echo htmlspecialchars($invitados); ?>, 
                                           '<?php echo htmlspecialchars($descripcion); ?>',
-                                          '<?php echo htmlspecialchars($personal_nombre); ?>')">
+                                          '<?php echo htmlspecialchars($personal_nombre); ?>',
+                                          '<?php echo isset($imagen) ? 'login/'.$imagen : ''; ?>')">
                     Ver Detalles
                 </button>
             </div>
@@ -91,6 +92,9 @@
             <p id="modal-invitados"></p>
             <p id="modal-personal"></p>
 
+            <!-- Mostrar la imagen en el modal -->
+            <img id="modal-imagen" src="" alt="Imagen de la promoción" style="width: 100%; max-width: 400px; display: none;"/>
+
             <!-- Botón de reservar -->
             <a id="modal-reservar-btn" class="button" href="#">Reservar</a>
         </div>
@@ -100,14 +104,22 @@
 
     <script>
         // Función para abrir el modal
-        function openModal(id, nombre, menu, tipo, invitados, descripcion, personal) {
+        function openModal(id, nombre, menu, tipo, invitados, descripcion, personal, imagen) {
             document.getElementById("modal-nombre").textContent = nombre;
             document.getElementById("modal-menu").textContent = "Banquete: " + menu;
             document.getElementById("modal-tipo").textContent = "Tipo de Evento: " + tipo;
             document.getElementById("modal-invitados").textContent = "Cantidad de Invitados: " + invitados;
             document.getElementById("modal-descripcion").textContent = "Descripción: " + descripcion;
             document.getElementById("modal-personal").textContent = "Personal Adicional: " + personal;
-            
+
+            // Mostrar la imagen si está disponible
+            const modalImagen = document.getElementById("modal-imagen");
+            if (imagen) {
+                modalImagen.src = imagen;  // Asigna la URL de la imagen al elemento <img> del modal
+                modalImagen.style.display = "block";  // Asegura que la imagen se muestre
+            } else {
+                modalImagen.style.display = "none";  // Si no hay imagen, ocultarla
+            }
 
             // Configurar el enlace del botón de reserva
             const reservarBtn = document.getElementById("modal-reservar-btn");
@@ -121,6 +133,5 @@
             document.getElementById("myModal").style.display = "none";
         }
     </script>
-
 </body>
 </html>
